@@ -1,0 +1,1 @@
+Extensible inherited templates, contains main blocks and hooks.

@@ -1,0 +1,12 @@
+{
+  "require": {
+    "twig/twig": "1.42.1",
+    "monolog/monolog": "1.24.0",
+    "phpfastcache/phpfastcache": "6.1.3",
+    "vlucas/phpdotenv": "3.4.0",
+    "floatphp/classes": "^1.0",
+    "floatphp/exceptions": "^1.0",
+    "floatphp/interfaces": "^1.0",
+    "floatphp/kernel": "^1.0"
+  }
+}

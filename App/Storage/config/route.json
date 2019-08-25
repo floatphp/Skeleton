@@ -1,0 +1,80 @@
+[
+    {
+        "method": "GET|POST",
+        "route": "/",
+        "controller": "DashboardController@index",
+        "name": "dashboardIndex"
+    },
+    {
+        "method": "GET|POST",
+        "route": "/api/v1/",
+        "controller": "WebsiteAPI@index",
+        "name": "apiInfo"
+    },
+    {
+        "method": "GET",
+        "route": "/cache/clean/",
+        "controller": "CacheController@clean",
+        "name": "cacheClean"
+    },
+    {
+        "method": "GET",
+        "route": "/admin/config/",
+        "controller": "AdminController@index",
+        "name": "configIndex"
+    },
+    {
+        "method": "POST",
+        "route": "/admin/config/",
+        "controller": "AdminController@update",
+        "name": "configUpdate"
+    },
+    {
+        "method": "POST",
+        "route": "/router/get/",
+        "controller": "AdminController@getRouter",
+        "name": "adminGetRouter"
+    },
+    {
+        "method": "POST",
+        "route": "/router/generate/",
+        "controller": "AdminController@generateRouter",
+        "name": "adminGenerateRouter"
+    },
+    {
+        "method": "GET",
+        "route": "/login/",
+        "controller": "AuthController@index",
+        "name": "authIndex"
+    },
+    {
+        "method": "POST",
+        "route": "/login/",
+        "controller": "AuthController@login",
+        "name": "authLogin"
+    },
+    {
+        "method": "POST",
+        "route": "/logout/",
+        "controller": "UserController@logout",
+        "name": "userLogout"
+    },
+    {
+        "method": "GET",
+        "route": "/adherent/",
+        "controller": "AdherentController@index",
+        "name": "adherentIndex"
+    },
+    {
+        "method": "POST",
+        "route": "/adherent/get/active/",
+        "controller": "AdherentController@getActive",
+        "name": "adherentGetActive"
+    },
+    {
+        "method": "POST",
+        "route": "/adherent/get/archive/",
+        "controller": "AdherentController@getArchive",
+        "name": "adherentGetArchive"
+    }
+]
