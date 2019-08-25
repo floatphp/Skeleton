@@ -1,0 +1,1 @@
+Example of block inherit, and hook.

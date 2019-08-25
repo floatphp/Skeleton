@@ -1,0 +1,20 @@
+{
+   "root":"",
+   "version":"1.0",
+   "dir":{
+      "view":"App/Views/",
+      "cache":"App/Storage/cache/",
+      "upload":"App/Storage/upload/"
+   },
+   "system":{
+      "root":"App/Storage/config/route",
+      "debug":true,
+      "admin":"/admin/config/",
+      "login":"/login/"
+   },
+   "ip":"0.0.0.0",
+   "api":{
+      "username":"demo",
+      "password":"123456"
+   }
+}
