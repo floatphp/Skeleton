@@ -1,0 +1,42 @@
+<div class="col-md-{{input.column}}">
+	<div class="{{input.wrapper}}">
+
+		{% set html = '<input' %}
+		{% set html = html ~ ' id="' ~ input.id ~ '"' %}
+		{% set html = html ~ ' name="' ~ input.name ~ '"' %}
+		{% set html = html ~ ' class="' ~ input.class ~ '"' %}
+		{% set html = html ~ ' type="checkbox"' %}
+		{% set html = html ~ ' role="switch"' %}
+
+		{% if input.extras %}
+			{% set html = html ~ ' ' ~ input.extras %}
+		{% endif %}
+
+		{% if input.required %}
+			{% set html = html ~ ' required' %}
+		{% endif %}
+
+        {% set status = input.value == 'on' ? 'checked' : '' %}
+        {% set html = html ~ ' ' ~ status %}
+
+		{% set html = html ~ '>' %}
+
+		{% if input.label %}
+			<label class="form-check-label" for="{{input.id}}">
+				{{translate(input.label)}}
+				{% if input.required %}
+					(*)
+				{% endif %}
+			</label>
+		{% endif %}
+
+		{{html|raw}}
+
+		{% if input.description %}
+			<p class="form-text">
+				{{translate(input.description)}}
+			</p>
+		{% endif %}
+
+	</div>
+</div>

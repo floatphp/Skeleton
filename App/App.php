@@ -1,55 +1,115 @@
 <?php
 /**
- * @author    : JIHAD SINNAOUR
- * @package   : FloatPHP
- * @subpackage: App Component
- * @version   : 1.0.0
- * @category  : PHP framework
- * @copyright : (c) JIHAD SINNAOUR <mail@jihadsinnaour.com>
- * @link      : https://www.floatphp.com
- * @license   : MIT License
+ * @author     : Jakiboy
+ * @package    : FloatPHP Skeleton App
+ * @version    : 1.4.x
+ * @copyright  : (c) 2017 - 2024 Jihad Sinnaour <mail@jihadsinnaour.com>
+ * @link       : https://floatphp.com
+ * @license    : MIT
+ *
+ * This file if a part of FloatPHP Framework.
  */
 
 namespace App;
 
-class App
+use FloatPHP\Kernel\Core;
+use FloatPHP\Classes\Filesystem\Stringify;
+use FloatPHP\Helpers\Framework\Debugger;
+
+final class App
 {
-	public function __construct()
+	/**
+	 * @access private
+	 * @var bool $initialized
+	 */
+	private static $initialized = false;
+
+	/**
+	 * Register app autoloader.
+	 *
+	 * @access private
+	 */
+	private function __construct()
 	{
-		include( __DIR__ . '/vendor/autoload.php' );
-		self::register();
-		new \floatPHP\Kernel\Kernel;
+		global $__APP__;
+		$__APP__ = __DIR__;
+
+		// Include dependencies
+		if ( !file_exists($autoload = "{$__APP__}/vendor/autoload.php") ) {
+			exit(__CLASS__ . ': Autoload required');
+		}
+
+		require_once $autoload;
+		spl_autoload_register(callback: [__CLASS__, 'autoload']);
+
+		// Finish initialization
+		static::$initialized = true;
 	}
 
 	/**
-	 * @param $class
-	 * @return void
+	 * Unregister app autoloader.
 	 */
-	private function autoload($class)
+	public function __destruct()
 	{
-	    if (strpos($class, __NAMESPACE__ . '\\') === 0)
-	    {
-	        $class = str_replace(__NAMESPACE__ . '\\', '', $class);
-	        $class = str_replace('\\', '/', $class);
-	        require __NAMESPACE__.'/' . $class . '.php';
-	    }
+		spl_autoload_unregister(callback: [__CLASS__, 'autoload']);
 	}
 
 	/**
-	 * @param void
+	 * Autoloader method.
+	 * 
+	 * @access private
+	 * @param string $class
 	 * @return void
 	 */
-	private function register()
+	private function autoload(string $class) : void
 	{
-	    spl_autoload_register(array(__CLASS__, 'autoload'));
+		$namespace = __NAMESPACE__;
+		if ( strpos(haystack: $class, needle: "{$namespace}\\") === 0 ) {
+
+			$class = Stringify::remove(string: "{$namespace}\\", subject: $class);
+			$class = Stringify::replace(search: '\\', replace: '/', subject: $class);
+
+			$namespace = Stringify::replace(
+				search: ['\\', '_'],
+				replace: ['/', '-'],
+				subject: $namespace
+			);
+
+			$class = Stringify::formatPath(
+				path: "{$namespace}/{$class}.php"
+			);
+
+			require_once $class;
+		}
 	}
-	
+
 	/**
-	 * @param void
+	 * Initialize framework.
+	 *
+	 * @access public
 	 * @return void
 	 */
-	public function unregister()
+	public static function init() : void
 	{
-		spl_autoload_unregister(array(__CLASS__, 'autoload'));
+		if ( !static::$initialized ) {
+			new static;
+		}
+	}
+
+	/**
+	 * Start framework core.
+	 *
+	 * @access public
+	 * @param array $config
+	 * @return void
+	 */
+	public static function start(array $config = []) : void
+	{
+		if ( !static::$initialized ) {
+			self::init();
+			Debugger::init();
+			new Core($config);
+			Debugger::setExecutionTime();
+		}
 	}
 }

@@ -1,0 +1,27 @@
+{
+	"admin": {
+		"cache": "Cache",
+		"ok": "Ok",
+		"yes": "Yes",
+		"no": "No",
+		"cancel": "Cancel",
+		"confirm": "Confirm",
+		"close": "Close",
+		"confirmation": "Are you sure to continue?",
+		"error": "An error has occurred",
+		"remove": "Remove",
+		"delete": "Delete",
+		"edit": "Edit",
+		"duplicate": "Duplicate",
+		"insert": "Insert",
+		"logout": "Logout...",
+		"updating": "Updating in progress...",
+		"creation": "Creation in progress...",
+		"purging": "Purging cache...",
+		"offline": "You are offline",
+		"online": "You are back online"
+	},
+	"front": {
+		"error": "An error has occurred"
+	}
+}

@@ -1,0 +1,66 @@
+{% block head %}
+
+	{% block doctype %}
+		<!DOCTYPE html>
+		<html lang="{{lang|default('en')}}">
+	{% endblock %}
+
+	<head>
+
+		{% block meta %}
+			<meta charset="utf-8">
+			<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+			<meta name="generator" content="{{data.website.generator}}">
+			<meta name="robots" content="noindex">
+			{{doAction('meta')}}
+		{% endblock %}
+
+		{% block title %}
+			<title>{{translate(status)}}</title>
+		{% endblock %}
+
+		{% block theme %}
+			<meta name="theme-color" content="#f4623a">
+		{% endblock %}
+
+		{% block favicon %}
+			<link rel="icon" type="image/png" href="{{getAssetUrl()}}/front/img/favicon.png">
+			<link rel="apple-touch-icon" sizes="60x60" href="{{getAssetUrl()}}/front/img/favicon.png">
+		{% endblock %}
+
+		{% block style %}
+
+			{% block vendor %}
+				{% if isDebug() %}
+				{% else %}
+				{% endif %}
+				{{doAction('css')}}
+			{% endblock %}
+
+			{% block main %}
+				{% if isDebug() %}
+					<link rel="stylesheet" type="text/css" href="{{getAssetUrl()}}/front/theme/default/css/style.css">
+					<link rel="stylesheet" type="text/css" href="{{getAssetUrl()}}/front/theme/default/css/custom.css">
+				{% else %}
+					<link rel="stylesheet" type="text/css" href="{{getAssetUrl()}}/front/theme/default/css/style.min.css">
+				{% endif %}
+				{{doAction('main-css')}}
+			{% endblock %}
+
+		{% endblock %}
+
+		{% block script %}
+			{% block inline %}
+				{{doAction('head-inline-js')}}
+			{% endblock %}
+			{{doAction('head-js')}}
+		{% endblock %}
+
+		{{doAction('head')}}
+
+	</head>
+{% endblock %}
+
+{% block body %}
+	<body>
+{% endblock %}

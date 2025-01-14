@@ -1,0 +1,11 @@
+{% block javascript %}
+	<noscript>
+		<div class="alert alert-danger" role="alert">
+			<i class="bi bi-exclamation-triangle fs-2 mb-3"></i>
+			<p class="fs-5 mb-0">
+				{{translate('JavaScript deactivated')}}.
+				<a href="http://www.enable-javascript.com/" target="_blank">{{translate('How to resolve it?')}}</a> 
+			</p>
+		</div>
+	</noscript>
+{% endblock %}

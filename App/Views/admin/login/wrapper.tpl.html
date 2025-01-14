@@ -1,0 +1,27 @@
+{{doAction('before-wrapper')}}
+<div class="bg-body-tertiary d-flex flex-row align-items-center min-vh-100 p-3">
+	<div class="container">
+		<div class="row justify-content-center">
+			<div class="col-lg-8">
+				<div class="card-group d-block d-md-flex row">
+					<div class="card col-md-7 p-4 mb-0">
+						<div class="card-body">
+                            {% include 'admin/login/form.tpl.html' %}
+                        </div>
+					</div>
+					<div class="card col-md-5 text-white bg-secondary py-5">
+						<div class="card-body text-center">
+                            {% include 'admin/login/content.tpl.html' %}
+                        </div>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-8">
+				<div class="d-block d-md-flex row">
+					<a href="https://github.com/floatphp" class="small text-muted opacity-75" target="_bkank">Powered by FloatPHP</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{{doAction('after-wrapper')}}

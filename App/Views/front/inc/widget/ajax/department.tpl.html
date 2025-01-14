@@ -1,0 +1,12 @@
+{% set count = value|length - 1 %}
+{% for i in 0..count %}
+    {% set dep = value[i] %}
+    <div class="col-lg-4 dep-col">
+        <div class="dep-element">
+            <a href="/{{data.linking.department}}/{{dep.slug}}/" title="{{translate('Visit')}}">
+                <i class="bi bi-geo-alt-fill"></i>
+                <span>{{data.website.thematic}}</span> <strong>{{dep.name}}</strong> ({{dep.code}})
+            </a>
+        </div>
+    </div>
+{% endfor %}

@@ -1,0 +1,80 @@
+{{doAction('before-article')}}
+{% block article %}
+
+    <article>
+
+        {% if data.heading.title or data.heading.text %}
+            {% set class = 'bg-primary text-center' %}
+            <div id="section-heading" class="page-section {{data.heading.class|default(class)}}">
+                <div class="container px-4 px-lg-5">
+                    <div class="row gx-4 gx-lg-5 justify-content-center">
+                        <div class="col-lg-8">
+
+                            {% if data.heading.title %}
+                                <h1 class="text-white">{{data.heading.title|raw}}</h1>
+                                <hr class="divider divider-light">
+                            {% endif %}
+
+                            {% if data.heading.text %}
+                                <div class="text-white-75 fs-5 mb-4">
+                                    {{data.heading.text|raw}}
+                                </div>
+                            {% endif %}
+
+                            {% if data.heading.blink %}
+                                <span data-target="{{data.heading.blink}}" class="btn btn-light btn-xl">
+                                    {{data.heading.btext|raw}}
+                                </span>
+                            {% endif %}
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+
+        {% for key, content in data.content %}
+            {% set key = key + 1 %}
+            {% if content.text %}
+                {% set class = 'bg-light' %}
+                <div id="section-{{key}}" class="page-section {{content.class|default(class)}}">
+                    <div class="container px-4 px-lg-5">
+                        <div class="row">
+
+                            {% set column = '12' %}
+                            {% if content.sidebar is same as 'on' %}
+                                {% set column = 'md-9' %}
+                            {% endif %}
+   
+                            <div class="col-{{column}}">
+                                {% if content.title %}
+                                    <h2>{{content.title|raw}}</h2>
+                                    <hr class="divider">
+                                {% endif %}
+                                <div class="content fs-5">
+                                    {% include 'front/content.tpl.html' %}
+                                </div>
+                            </div>
+
+                            {% if content.sidebar is same as 'on' %}
+                                <div class="col-md-3">
+                                    <div class="sidebar sticky-top mt-5">
+                                        {% include 'front/sidebar.tpl.html' %}
+                                    </div>
+                                </div>
+                            {% endif %}
+
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+        {% endfor %}
+
+        {% if data.modules.schemas == 'on' %}
+            {% include 'front/inc/widget/schema.tpl.html' %}
+        {% endif %}
+
+    </article>
+
+{% endblock %}
+{{doAction('after-article')}}

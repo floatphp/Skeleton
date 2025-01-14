@@ -1,0 +1,23 @@
+{% block item %}
+	{% if section.items %}
+		{% set count = section.inputs|length %}
+		{% for key, items in section.inputs %}
+			<div class="row --items">
+				{% if count > 1 %}
+					<small class="--item-count mb-3">
+						<strong>{{translate(section.title)}}</strong> {{key + 1}}
+					</small>
+				{% endif %}
+				{% for input in items %}
+					{% include 'admin/inc/config/widget/' ~ input.type ~ '.tpl.html' %}
+				{% endfor %}
+			</div>
+		{% endfor %}
+	{% else %}
+		<div class="row">
+			{% for key, input in section.inputs %}
+				{% include 'admin/inc/config/widget/' ~ input.type ~ '.tpl.html' %}
+			{% endfor %}
+		</div>
+	{% endif %}
+{% endblock %}

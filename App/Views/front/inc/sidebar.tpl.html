@@ -1,0 +1,34 @@
+{{doAction('before-sidebar')}}
+{% block sidebar %}
+
+	{% include 'front/inc/widget/javascript.tpl.html' %}
+
+	{% for key, sidebar in data.sidebar %}
+
+		{% set key = key + 1 %}
+		{% set class = 'p-3 mb-5' %}
+
+		{% if sidebar.image or sidebar.title %}
+			<div class="widget {{sidebar.class|default(class)}}">
+
+				{% if sidebar.image %}
+					<img src="{{sidebar.image}}" class="img-fluid rounded mb-3" height="auto" width="auto" alt="widget" data-target="{{sidebar.link}}">
+				{% endif %}
+
+				{% if sidebar.title %}
+					<h3 data-target="{{sidebar.link}}">{{sidebar.title|raw}}</h3>
+				{% endif %}
+
+				{% if sidebar.text %}
+					{{sidebar.text|raw}}
+				{% endif %}
+
+			</div>
+		{% endif %}
+		
+	{% endfor %}
+
+	{{doAction('sidebar')}}
+
+{% endblock %}
+{{doAction('after-sidebar')}}

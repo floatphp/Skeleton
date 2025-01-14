@@ -1,6 +1,24 @@
-composer.phar
-/vendor/
-
-# Commit your application's lock file https://getcomposer.org/doc/01-basic-usage.md#commit-your-composer-lock-file-to-version-control
-# You may choose to ignore a library lock file http://getcomposer.org/doc/02-libraries.md#lock-file
-# composer.lock
+.vscode
+*.lock
+*.bak.*
+*.zip
+!.build/*.zip
+!.build/*/*.zip
+.build/release/*
+.build/release*
+App/vendor
+App/Storage/cache/*
+App/Storage/logs/*
+App/Storage/upload/backups/*
+App/Storage/upload/build/*
+App/Storage/upload/db/*/cache/*
+public/assets/admin/css/style.min.css
+public/assets/admin/js/login.min.js
+public/assets/admin/js/main.min.js
+public/assets/front/theme/*/css/*.min.css
+public/assets/front/theme/*/css/*.woff
+public/assets/front/theme/*/css/*.woff2
+public/assets/front/theme/*/js/*.min.js
+public/assets/vendor/all.min.js
+public/cache/*.*
+!public/cache/.htaccess

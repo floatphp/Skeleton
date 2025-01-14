@@ -1,0 +1,15 @@
+{{doAction('before-footer')}}
+{% block footer %}
+	<footer class="py-5">
+		<div class="container px-4 px-lg-5">
+			<div class="small text-center text-muted">
+				<span data-target="up">
+					<i class="bi-phone fs-2 mb-3 text-muted"></i>
+				</span>
+				{{data.footer.text|raw}}
+				{{doAction('footer')}}
+			</div>
+		</div>
+	</footer>
+{% endblock %}
+{{doAction('after-footer')}}

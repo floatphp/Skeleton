@@ -1,0 +1,23 @@
+<div class="weather-wrapper">
+    <div class="weather-location">{{name}}</div>
+    <div class="weather-carousel">
+        {% set asset = getAssetUrl() ~ '/front/img/weather' %}
+        {% for date, day in data %}
+            <div class="weather-card">
+                {% set icon = day.forecasts[0].icon %}
+                <img src="{{asset}}/default/{{icon}}@2x.png" class="weather-icon" width="100" height="100" alt="{{day.forecasts[0].desc}}">
+                <div class="weather-condition">{{day.forecasts[0].desc}}</div>
+                <div class="weather-temperature">{{day.forecasts[0].temp}}°C</div>
+                <div class="weather-details">
+                    <div class="weather-humidity">
+                        <img src="{{asset}}/svg/raindrop.svg" width="30" height="30" alt="humidity"> {{day.forecasts[0].humidity}}%
+                    </div>
+                    <div class="weather-wind">
+                        <img src="{{asset}}/svg/strong-wind.svg" width="30" height="30" alt="wind"> {{day.forecasts[0].wind}} km/h
+                    </div>
+                </div>
+                <div class="weather-date">{{date}} ({{day.day}})</div>
+            </div>
+        {% endfor %}
+    </div>
+</div>

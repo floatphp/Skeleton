@@ -1,0 +1,49 @@
+{% block end %}
+
+    {% block script %}
+
+        {% block vendor %}
+            {% if isDebug() %}
+            {% else %}
+            {% endif %}
+            <script src="{{getAssetUrl()}}/admin/vendor/@coreui/coreui/js/coreui.bundle.min.js"></script>
+            {{doAction('js')}}
+        {% endblock %}
+
+        {% block config %}
+            <script>
+                var globalVars = {
+                    baseUrl: '{{baseUrl}}',
+                    assetUrl: '{{getAssetUrl()}}',
+                    lang: "{{getLanguage()}}",
+                    timeout: {{getTimeout()}},
+                    token: "{{getToken()}}",
+                    data: {
+                        "website": {{toJson(data.website)|raw}},
+                        "modules": {{toJson(data.modules)|raw}},
+                        "linking": {{toJson(data.linking)|raw}},
+                        "strings": {{toJson(data.strings)|raw}},
+                    }
+                };
+                {{doAction('config-js')}}
+            </script>
+        {% endblock %}
+
+        {% block main %}
+            {% set ext = 'min.js' %}
+            {% if isDebug() %}
+                {% set ext = 'js' %}
+            {% endif %}
+            {{doAction('main-js')}}
+        {% endblock %}
+
+    {% endblock %}
+
+    {{doAction('body')}}
+    
+    {% block close %}
+        </body>
+        </html>
+    {% endblock %}
+
+{% endblock %}

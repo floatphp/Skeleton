@@ -1,0 +1,168 @@
+/* ----------------------------- */
+/* global */
+/* ----------------------------- */
+.body {
+    position: relative;
+}
+
+.--float-control.sticky {
+    position: sticky;
+    top: 0.8rem;
+    width: 30%;
+    z-index: 10000;
+}
+
+.row.--items:not(:last-child)::after {
+    content: '';
+    display: block;
+    width: 100%;
+    border-top: 0;
+    border-bottom: 2px dashed #ebebeb;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.row.--items {
+    position: relative;
+}
+
+.--debug-badge {
+    position: fixed;
+    bottom: 0.8rem;
+    right: 8rem;
+    z-index: 10000;
+}
+
+.--notification {
+    background: #000000;
+    color: #f3f4f7;
+    opacity: 0.68;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+    z-index: 10000;
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+}
+
+.--notification .toast-body {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.--notification .toast-body p {
+    filter: grayscale(100%) brightness(200%);
+    color: #6e6e6e;
+    margin: 0;
+    display: inline-block;
+    font-size: 18px;
+}
+
+.--notification .toast-body i {
+    margin-right: 1.5rem;
+    font-size: 1.2rem;
+}
+
+.toast.--notification .btn-close {
+    margin: auto;
+    margin-right: 0.5rem;
+    filter: var(--cui-btn-close-white-filter);
+    color: #080a0c;
+}
+
+/* ----------------------------- */
+/* form */
+/* ----------------------------- */
+.form-label {
+    font-weight: 500;
+}
+
+.form-control[readonly] {
+    background-color: #f8f8f8;
+}
+
+.--input-group {
+    border: 1px solid #dbdfe6;
+    border-radius: 6px;
+    padding: 14px 10px;
+    margin: 1em 0;
+}
+
+.--input-group label {
+    display: block;
+}
+
+.--input-group input[type="checkbox"] {
+    float: none;
+    margin-left: 0;
+}
+
+.--input-group .btn {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+.icon:not(.icon-c-s):not(.icon-custom-size) {
+    width: 1rem;
+    height: 1rem;
+    font-size: 1.2rem;
+    margin-right: 0.8rem;
+    line-height: 0.5;
+    color: #505050;
+}
+
+.--input-group .btn span {
+    display: block;
+}
+
+.--input-group .btn i {
+    position: relative;
+    display: block;
+    width: 15px;
+    height: 15px;
+}
+
+.--input-group .btn i:before {
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.--input-group .btn.icon-loading {
+    background: unset;
+}
+
+.--input-group .btn:hover {
+    background: unset;
+}
+
+.--input-group .btn.icon-loading i:before {
+    content: "\f116";
+    animation: loading 1.2s infinite;
+}
+
+/* ----------------------------- */
+/* animation */
+/* ----------------------------- */
+@keyframes loading {
+    from {
+        transform: rotate(0)
+    }
+
+    to {
+        transform: rotate(360deg)
+    }
+}
+
+/* ----------------------------- */
+/* media (reset) */
+/* ----------------------------- */
+@media only screen and (max-width:800px) {}

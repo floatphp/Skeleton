@@ -1,0 +1,26 @@
+{% block department %}
+    {% set length = departments|length %}
+    {% set count = length - 1 %}
+    <div class="row d-flex">
+        {% for i in 0..count %}
+            {% set dep = departments[i] %}
+            {% if loop.index0 % 4 == 0 %}
+                <div class="col-lg-4 dep-col">
+                    {% endif %}
+                    <div class="dep-element">
+                        <a href="/{{data.linking.department}}/{{dep.slug}}/" title="{{translate('Visit')}}">
+                            <i class="bi bi-geo-alt-fill"></i>
+                            <span>{{data.website.thematic}}</span> <strong>{{dep.name}}</strong> ({{dep.code}})
+                        </a>
+                    </div>
+                    {% if loop.index0 % 4 == 3 or loop.last %}
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+    {% if data.modules.more == 'on' %}
+        <span data-load-more data-item="department" data-page="1" data-limit="{{length}}" class="btn btn-light btn-xl mt-5">
+            {{translate('Load more')}}
+        </span>
+    {% endif %}
+{% endblock %}

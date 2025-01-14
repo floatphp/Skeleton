@@ -1,0 +1,24 @@
+{% block profile %}
+    {% set count = profiles|length %}
+    {% set class = 'd-flex' %}
+    {% if count <= 1 %}
+        {% set class = class ~ ' justify-content-center' %}
+    {% endif %}
+    <div class="row {{class}}">
+        {% set column = '4' %}
+        {% if count > 0 %}
+            {% for profile in profiles %}
+                <div class="col-lg-{{column}} profile-col">
+                    <a href="/{{data.linking.profile}}/{{profile.slug}}/" title="{{translate('Visit')}}">
+                        <i class="bi bi-geo-alt-fill"></i>
+                        <strong>{{profile.name}}</strong> ({{profile.code|slice(0, 5)}})
+                    </a>
+                </div>
+            {% endfor %}
+        {% else %}
+            <div class="col-lg-6 --message">
+                <small class="text-muted">{{translate('No profile found for this city, please check other cities in the area')}}</small>
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}

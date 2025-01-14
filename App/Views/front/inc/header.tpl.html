@@ -1,0 +1,32 @@
+{{doAction('before-header')}}
+{% block header %}
+    <header class="masthead">
+        <div class="container px-4 px-lg-5 h-100">
+            <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
+                <div class="col-lg-8 align-self-end">
+                    {% if data.header.title %}
+                        <span class="h1 text-white font-weight-bold">{{data.header.title|raw}}</span>
+                        <hr class="divider">
+                    {% endif %}
+                </div>
+                <div class="col-lg-8 align-self-baseline text-white-75">
+                    {% if data.header.subtitle %}
+                        <p class="mb-3">{{data.header.subtitle|raw}}</p>
+                    {% endif %}
+                    {% if data.header.text %}
+                        {{data.header.text|raw}}
+                    {% endif %}
+                    {% if data.header.btext %}
+                        <span data-target="{{data.header.blink}}" class="btn btn-primary btn-xl">
+                            {{data.header.btext|raw}}
+                        </span>
+                    {% endif %}
+                    {% if data.modules.search == 'on' %}
+                        {% include 'front/inc/widget/search.tpl.html' %}
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </header>
+{% endblock %}
+{{doAction('after-header')}}

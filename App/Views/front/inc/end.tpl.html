@@ -1,0 +1,52 @@
+{% block end %}
+
+    {% block script %}
+
+        {% block vendor %}
+            {% if isDebug() %}
+                <script src="{{getAssetUrl()}}/vendor/jquery/jquery.min.js"></script>
+                <script src="{{getAssetUrl()}}/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+                <script src="{{getAssetUrl()}}/vendor/vanille/VanillePlugin.min.js"></script>
+            {% else %}
+                <script src="{{getAssetUrl()}}/vendor/all.min.js"></script>
+            {% endif %}
+            {{doAction('js')}}
+        {% endblock %}
+
+        {% block config %}
+            <script>
+                var globalVars = {
+                    baseUrl: '{{baseUrl}}',
+                    assetUrl: '{{getAssetUrl()}}',
+                    lang: "{{getLanguage()}}",
+                    token: "{{getToken()}}",
+                    debug: "{{isDebug()}}",
+                    timeout: {{getTimeout()}},
+                    website: {{toJson(data.website)|raw}},
+                    modules: {{toJson(data.modules)|raw}},
+                    linking: {{toJson(data.linking)|raw}},
+                    strings: {{toJson(data.strings)|raw}}
+                };
+                {{doAction('config-js')}}
+            </script>
+        {% endblock %}
+
+        {% block main %}
+            {% set ext = 'min.js' %}
+            {% if isDebug() %}
+                {% set ext = 'js' %}
+            {% endif %}
+            <script src="{{getAssetUrl()}}/{{theme}}/js/main.{{ext}}" defer></script>
+            {{doAction('main-js')}}
+        {% endblock %}
+
+    {% endblock %}
+
+    {{doAction('body')}}
+    
+    {% block close %}
+        </body>
+        </html>
+    {% endblock %}
+
+{% endblock %}

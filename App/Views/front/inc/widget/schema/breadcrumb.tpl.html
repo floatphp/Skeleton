@@ -1,0 +1,83 @@
+{% block breadcrumb %}
+
+	{% set linking = data.linking %}
+	{% set page = data.website.page %}
+
+	<script type="application/ld+json">
+		{
+			"@context": "https://schema.org",
+			"@type": "BreadcrumbList",
+			"itemListElement": [
+				{
+					"@type": "ListItem",
+					"position": 1,
+					"item": {
+						"@id": "{{getBaseUrl()}}",
+						"name": "{{translate('Directory')}} : {{data.website.thematic}}"
+					}
+				}
+				{% if page == 'department' %}
+					{% set dep = data.item %}
+					,{
+						"@type": "ListItem",
+						"position": 2,
+						"item": {
+							"@id": "{{getBaseUrl()}}/{{linking.department}}/{{dep.slug}}/",
+							"name": "{{dep.name|raw}} ({{dep.code}})"
+						}
+					}
+				{% endif %}
+				{% if page == 'city' %}
+					{% set city = data.item %}
+					{% set dep = city.department %}
+					,{
+						"@type": "ListItem",
+						"position": 2,
+						"item": {
+							"@id": "{{getBaseUrl()}}/{{linking.department}}/{{dep.slug}}/",
+							"name": "{{dep.name|raw}} ({{dep.code}})"
+						}
+					},
+					{
+						"@type": "ListItem",
+						"position": 3,
+						"item": {
+							"@id": "{{getBaseUrl()}}/{{linking.city}}/{{city.slug}}/",
+							"name": "{{city.name|raw}} ({{city.postal|slice(0, 5)}})"
+						}
+					}
+				{% endif %}
+				{% if page == 'profile' %}
+					{% set profile = data.item %}
+					{% set city = profile.city %}
+					{% set dep = profile.department %}
+					,{
+						"@type": "ListItem",
+						"position": 2,
+						"item": {
+							"@id": "{{getBaseUrl()}}/{{linking.department}}/{{dep.slug}}/",
+							"name": "{{dep.name|raw}} ({{dep.code}})"
+						}
+					},
+					{
+						"@type": "ListItem",
+						"position": 3,
+						"item": {
+							"@id": "{{getBaseUrl()}}/{{linking.city}}/{{city.slug}}/",
+							"name": "{{city.name|raw}} ({{city.postal|slice(0, 5)}})"
+						}
+					},
+					{
+						"@type": "ListItem",
+						"position": 4,
+						"item": {
+							"@id": "{{getBaseUrl()}}/{{linking.profile}}/{{profile.slug}}/",
+							"name": "{{profile.name|raw}} ({{profile.code}})"
+						}
+					}
+				{% endif %}
+			]
+		}
+	</script>
+
+{% endblock %}

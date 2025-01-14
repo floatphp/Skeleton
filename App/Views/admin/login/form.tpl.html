@@ -1,0 +1,22 @@
+<p class="text-body-secondary">
+	<a href="{{getBaseUrl()}}" class="text-muted opacity-75">Generator</a>
+</p>
+<form method="post" name="login">
+	<div class="input-group mb-3">
+		<span class="input-group-text">
+			<i class="bi bi-person"></i>
+		</span>
+		<input class="form-control" type="text" name="user" placeholder="{{translate('Username')}}" required>
+	</div>
+	<div class="input-group mb-3">
+		<span class="input-group-text">
+			<i class="bi bi-lock"></i>
+		</span>
+		<input class="form-control" type="password" name="pswd" placeholder="{{translate('Password')}}" required>
+	</div>
+	<div class="input-group">
+		<button class="btn btn-light px-4" type="submit">
+			{{translate('Sign In')}}
+		</button>
+	</div>
+</form>

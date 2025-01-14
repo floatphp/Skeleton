@@ -1,0 +1,19 @@
+{% block search %}
+	<form name="search" method="post" action="/search/">
+		<div class="--search-form">
+			<div class="container">
+				<div class="row justify-content-center">
+					<div class="col-12 col-md-auto mb-3">
+						<input name="city" class="form-control" placeholder="{{translate('City or postcode')}}" required>
+					</div>
+					<div class="col-12 col-md-auto mb-1">
+						<button type="submit" class="btn btn-primary">{{translate('Get me there')}}</button>
+					</div>
+					<div class="col-12">
+						<span class="--message"></span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>
+{% endblock %}

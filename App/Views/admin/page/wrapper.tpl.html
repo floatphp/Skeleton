@@ -1,0 +1,7 @@
+{{doAction('before-wrapper')}}
+<div class="wrapper d-flex flex-column min-vh-100">
+    {% include 'admin/dashboard/header.tpl.html' %}
+    {% include 'admin/dashboard/content.tpl.html' %}
+    {% include 'admin/dashboard/footer.tpl.html' %}
+</div>
+{{doAction('after-wrapper')}}

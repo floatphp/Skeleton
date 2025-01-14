@@ -1,0 +1,58 @@
+{% block sidebar %}
+	<div id="sidebar" class="sidebar sidebar-light sidebar-fixed border-end">
+
+		{% block header %}
+			<div class="sidebar-header border-bottom">
+				<div class="sidebar-brand"></div>
+			</div>
+		{% endblock %}
+
+		{% block nav %}
+
+			<ul class="sidebar-nav" data-coreui="navigation" data-simplebar="">
+
+				{% for nav in menu %}
+
+					{% if nav.type == 'heading' %}
+						<li class="nav-title">{{nav.name}}</li>
+					{% else %}
+						<li class="{{nav.class}}">
+							<a href="{{nav.url}}" class="{{nav['link-class']}}">
+								<i class="bi bi-{{nav.icon}} icon"></i>
+								{{nav.name}}
+							</a>
+							{% if not nav.sub is same as(false) %}
+								<ul class="nav-group-items compact">
+									{% for sub in nav.sub %}
+										<li class="{{sub.class}}">
+											<a href="{{sub.url}}" class="nav-link">
+												<span class="nav-icon">
+													<span class="nav-icon-bullet"></span>
+												</span>
+												{{sub.name}}
+											</a>
+										</li>
+									{% endfor %}
+								</ul>
+							{% endif %}
+						</li>
+					{% endif %}
+
+				{% endfor %}
+
+				{% block item %}
+					{{doAction('sidebar-item')}}
+				{% endblock %}
+
+			</ul>
+
+			{% block toggle %}
+				<div class="sidebar-footer border-top d-none d-md-flex">
+					<button class="sidebar-toggler" type="button" data-coreui-toggle="unfoldable"></button>
+				</div>
+			{% endblock %}
+
+		{% endblock %}
+
+	</div>
+{% endblock %}
