@@ -1,0 +1,47 @@
+{% extends 'admin/inc/end.tpl.html' %}
+{% block end %}
+
+	{% block script %}
+
+        {% block vendor %}
+            {{parent()}}
+			{{doAction('login-js')}}
+		{% endblock %}
+
+		{% block inline %}
+			{{doAction('login-inline-js')}}
+		{% endblock %}
+
+		{% block config %}
+			<script type="text/javascript">
+				var globalVars = {
+					baseUrl: '{{baseUrl}}',
+					assetUrl: '{{getAssetUrl()}}',
+					loginUrl: '/admin/login/h/',
+					adminUrl: '/admin/dashboard/i/',
+					lang: "{{getLanguage()}}",
+					token: "{{getToken()}}",
+					debug: "{{isDebug()}}",
+					timeout: {{getTimeout()}},
+					strings: {{toJson(strings)|raw}}
+				};
+				{{doAction('login-config-js')}}
+			</script>
+		{% endblock %}
+
+		{% block main %}
+			{% if isDebug() %}
+				<script src="{{getAssetUrl()}}/admin/js/login.js" defer></script>
+			{% else %}
+				<script src="{{getAssetUrl()}}/admin/js/login.min.js" defer></script>
+			{% endif %}
+			{{doAction('login-main-js')}}
+		{% endblock %}
+
+	{% endblock %}
+
+	{% block close %}
+		{{parent()}}
+  	{% endblock %}
+
+{% endblock %}

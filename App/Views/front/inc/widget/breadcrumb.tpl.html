@@ -1,0 +1,59 @@
+{% block breadcrumb %}
+	{% set page = data.website.page %}
+	{% set class = content.class|default('bg-light') %}
+	<div id="section-breadcrumb" class="{{class}}">
+		<div class="container px-4 px-lg-5">
+			<div class="row">
+				<div class="col-12">
+					<ol class="breadcrumb">
+
+						<li class="breadcrumb-item" title="{{translate('Home page')}}">
+							<a href="{{getBaseUrl()}}">
+								{{translate('Directory')}} : {{data.website.thematic}}
+							</a>
+						</li>
+
+						{% if page == 'department' %}
+							<li class="breadcrumb-item text-black active" title="{{translate('You are here')}}">
+								{{data.item.name|raw}}
+								({{data.item.code}})
+							</li>
+						{% endif %}
+
+						{% if page == 'city' %}
+							{% set dep = data.item.department %}
+							<li class="breadcrumb-item" title="{{translate('Department page')}}">
+								<a href="{{getBaseUrl()}}/{{data.linking.department}}/{{dep.slug}}/">
+									{{dep.name|raw}} ({{dep.code}})
+								</a>
+							</li>
+							<li class="breadcrumb-item text-black active" title="{{translate('You are here')}}">
+								{{data.item.name|raw}}
+								({{data.item.postal|slice(0, 5)}})
+							</li>
+						{% endif %}
+
+						{% if page == 'profile' %}
+							{% set dep = data.item.department %}
+							{% set city = data.item.city %}
+							<li class="breadcrumb-item" title="{{translate('Department page')}}">
+								<a href="{{getBaseUrl()}}/{{data.linking.department}}/{{dep.slug}}/">
+									{{dep.name|raw}} ({{dep.code}})
+								</a>
+							</li>
+							<li class="breadcrumb-item" title="{{translate('City page')}}">
+								<a href="{{getBaseUrl()}}/{{data.linking.city}}/{{city.slug}}/">
+									{{city.name|raw}} ({{city.postal|slice(0, 5)}})
+								</a>
+							</li>
+							<li class="breadcrumb-item text-black active" title="{{translate('You are here')}}">
+								{{data.item.name|raw}} ({{data.item.code|slice(0, 5)}})
+							</li>
+						{% endif %}
+
+					</ol>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}

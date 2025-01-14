@@ -1,0 +1,10 @@
+{% block form %}
+	<form method="POST" name="{{inputs.name}}">
+		<div class="col-12 --float-control mb-3">
+			<button class="btn btn-primary" type="submit">
+				{{translate('Save')}}
+			</button>
+		</div>
+		{% include 'admin/inc/config/section.tpl.html' %}
+	</form>
+{% endblock %}

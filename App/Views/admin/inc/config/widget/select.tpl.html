@@ -1,0 +1,56 @@
+<div class="col-md-{{input.column}}">
+	<div class="{{input.wrapper}}">
+
+		{% if input.label %}
+			<label class="form-label" for="{{input.id}}">
+				{{translate(input.label)}}
+				{% if input.required %}
+					(*)
+				{% endif %}
+			</label>
+		{% endif %}
+
+		{% set html = '<select' %}
+		{% set html = html ~ ' id="' ~ input.id ~ '"' %}
+		{% set html = html ~ ' name="' ~ input.name ~ '"' %}
+		{% set html = html ~ ' class="' ~ input.class ~ '"' %}
+        {% set html = html ~ ' aria-label="' ~ input.name ~ '"' %}
+		
+		{% if input.extras %}
+			{% set html = html ~ ' ' ~ input.extras %}
+		{% endif %}
+
+		{% if input.required %}
+			{% set html = html ~ ' required' %}
+		{% endif %}
+
+		{% set html = html ~ '>' %}
+
+        {% if input.default %}
+            {% set default = translate(input.default) %}
+            {% set html = html ~ '<option value>' %}
+            {% set html = html ~ default %}
+            {% set html = html ~ '</option>' %}
+		{% endif %}
+
+		{% for key, val in input.values %}
+			{% set attr = '' %}
+			{% if input.value == key %}
+				{% set attr = 'selected' %}
+			{% endif %}
+            {% set html = html ~ '<option value="' ~ key ~ '"' %}
+            {% set html = html ~ attr ~ '>' ~ val ~ '</option>' %}
+		{% endfor %}
+
+		{% set html = html ~ '</select>' %}
+
+		{{html|raw}}
+
+		{% if input.description %}
+			<p class="form-text">
+				{{translate(input.description)}}
+			</p>
+		{% endif %}
+
+	</div>
+</div>

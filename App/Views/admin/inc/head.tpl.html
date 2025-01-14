@@ -1,0 +1,77 @@
+{% block head %}
+
+	{% block doctype %}
+		<!DOCTYPE html>
+        <html lang="{{lang|default('en')}}" data-coreui-theme="light">
+	{% endblock %}
+
+    <head>
+
+        {% block meta %}
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+            <meta name="theme-color" content="#5856d6">
+            <meta name="generator" content="FloatPHP">
+            <meta name="robots" content="noindex, nofollow">
+            {{doAction('meta')}}
+        {% endblock %}
+
+        {% block title %}
+            <title>{{heading|default('Generator')}}</title>
+        {% endblock %}
+
+        {% block base %}
+            <base href="/">
+        {% endblock %}
+
+        {% block favicon %}
+            <link rel="icon" type="image/png" href="{{getAssetUrl()}}/admin/img/favicon.png">
+        {% endblock %}
+
+        {% block manifest %}
+            <link rel="manifest" href="{{getAssetUrl()}}/admin/vendor/theme/manifest.json">
+        {% endblock %}
+
+        {% block style %}
+
+			{% block vendor %}
+				{% if isDebug() %}
+				{% else %}
+				{% endif %}
+                <link rel="stylesheet" type="text/css" href="{{getAssetUrl()}}/vendor/icons/icons.min.css">
+                <link rel="stylesheet" type="text/css" href="{{getAssetUrl()}}/admin/vendor/simplebar/css/simplebar.css">
+                <link rel="stylesheet" type="text/css" href="{{getAssetUrl()}}/admin/vendor/confirm/jquery-confirm.min.css">
+				<link rel="stylesheet" type="text/css" href="{{getAssetUrl()}}/admin/vendor/theme/css/style.css">
+                {{doAction('css')}}
+			{% endblock %}
+
+			{% block main %}
+                {% if isDebug() %}
+                    <link rel="stylesheet" type="text/css" href="{{getAssetUrl()}}/admin/css/style.css">
+                {% else %}
+                    <link rel="stylesheet" type="text/css" href="{{getAssetUrl()}}/admin/css/style.min.css">
+                {% endif %}
+				{{doAction('main-css')}}
+			{% endblock %}
+
+        {% endblock %}
+
+        {% block script %}
+
+            {% block inline %}
+                {{doAction('head-inline-js')}}
+            {% endblock %}
+
+            <script src="{{getAssetUrl()}}/admin/vendor/tinymce/tinymce.min.js"></script>
+            <script src="{{getAssetUrl()}}/admin/vendor/tinymce/setup.js"></script>
+            {{doAction('head-js')}}
+
+        {% endblock %}
+
+    </head>
+
+    {% block body %}
+        <body data-page="{{inputs.name|default(name)}}">
+    {% endblock %}
+
+{% endblock %}

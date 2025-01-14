@@ -1,1 +1,0 @@
-Templates reserved to system.

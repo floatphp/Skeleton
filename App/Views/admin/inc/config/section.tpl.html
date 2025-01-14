@@ -1,0 +1,17 @@
+{% block section %}
+	{% for section in inputs.sections %}
+		<div class="{{section.class}}">
+			<div class="card-header">
+				<strong>{{translate(section.title)}}</strong>
+				{% if section.description %}
+					<small class="text-muted">
+						({{section.description}})
+					</small>
+				{% endif %}
+			</div>
+			<div class="card-body">
+				{% include 'admin/inc/config/item.tpl.html' %}
+			</div>
+		</div>
+	{% endfor %}
+{% endblock %}

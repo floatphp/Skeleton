@@ -1,0 +1,30 @@
+<div class="col-md-{{input.column}}">
+	<div class="{{input.wrapper}}">
+
+		{% set html = '<a' %}
+		{% set html = html ~ ' href="#"' %}
+		{% set html = html ~ ' data-name="' ~ input.slug ~ '"' %}
+		{% set html = html ~ ' class="' ~ input.class|default('btn btn-primary') ~ '"' %}
+
+		{% if input.extras %}
+			{% set html = html ~ ' ' ~ input.extras %}
+		{% endif %}
+
+		{% set html = html ~ '>' %}
+		{% if input.icon %}
+			{% set html = html ~ ' <i class="bi bi-' ~ input.icon ~ '"></i>' %}
+		{% endif %}
+
+		{% set html = html ~ '<span>' ~ input.label ~ '</span>' %}
+		{% set html = html ~ '</a>' %}
+
+		{{html|raw}}
+
+		{% if input.description %}
+			<p class="form-text text-center m-0">
+				{{translate(input.description)}}
+			</p>
+		{% endif %}
+
+	</div>
+</div>

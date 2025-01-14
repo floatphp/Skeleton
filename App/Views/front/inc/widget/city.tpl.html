@@ -1,0 +1,23 @@
+{% block city %}
+    <div class="row d-flex justify-content-center">
+        {% set column = '3' %}
+        {% if page == 'department' %}
+            {% set column = '4' %}
+        {% endif %}
+        {% for city in cities %}
+            <div class="col-lg-{{column}} city-col">
+                <a href="/{{data.linking.city}}/{{city.slug}}/" title="{{translate('Visit')}}">
+                    <i class="bi bi-geo-alt-fill"></i>
+                    <strong>{{city.name}}</strong> ({{city.postal|slice(0, 5)}})
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+    {% if page == 'department' and data.modules.more == 'on' %}
+        {% set length = cities|length %}
+        {% set code = cities[0].department %}
+        <span data-load-more data-item="city" data-code="{{code}}" data-page="1" data-limit="{{length}}" class="btn btn-light btn-xl mt-5">
+            {{translate('Load more')}}
+        </span>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,42 @@
+{{doAction('before-nav')}}
+{% block nav %}
+	<nav id="main-nav" class="navbar navbar-expand-lg navbar-light fixed-top py-4">
+		<div class="container px-4 px-lg-5">
+
+			{% block logo %}
+				<span data-target="/" class="navbar-brand">
+					<img class="--logo" src="{{getAssetUrl()}}/front/img/logo.png" width="170" height="60" alt="logo">
+				</span>
+			{% endblock %}
+
+			{% block toggle %}
+				<button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#mobile-nav" aria-controls="mobile-nav" aria-expanded="false" aria-label="Navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+			{% endblock %}
+
+			{{doAction('before-menu')}}
+			{% block menu %}
+				<div class="collapse navbar-collapse" id="mobile-nav">
+					<ul class="navbar-nav ms-auto my-2 my-lg-0">
+
+						{% for key, menu in data.menu %}
+							{% set key = key + 1 %}
+							{% if menu.text %}
+								<li class="nav-item item-{{key}}">
+									<span data-target="{{menu.link}}" class="nav-link">{{menu.text|raw}}</span>
+								</li>
+							{% endif %}
+						{% endfor %}
+
+						{{doAction('menu')}}
+
+					</ul>
+				</div>
+			{% endblock %}
+			{{doAction('after-menu')}}
+
+		</div>
+	</nav>
+{% endblock %}
+{{doAction('after-nav')}}

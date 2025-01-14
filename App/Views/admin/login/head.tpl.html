@@ -1,0 +1,62 @@
+{% extends 'admin/inc/head.tpl.html' %}
+
+{% block head %}
+
+	{% block doctype %}
+		{{parent()}}
+	{% endblock %}
+
+    <head>
+
+        {% block meta %}
+            {{parent()}}
+            {{doAction('login-meta')}}
+        {% endblock %}
+
+        {% block title %}
+            <title>{{heading|default('Generator | Login')}}</title>
+        {% endblock %}
+
+        {% block base %}
+            {{parent()}}
+        {% endblock %}
+
+        {% block favicon %}
+            {{parent()}}
+        {% endblock %}
+
+        {% block manifest %}
+            {{parent()}}
+        {% endblock %}
+
+        {% block style %}
+
+			{% block vendor %}
+				{{parent()}}
+                {{doAction('login-css')}}
+			{% endblock %}
+
+			{% block main %}
+                {{parent()}}
+				{{doAction('login-main-css')}}
+			{% endblock %}
+
+        {% endblock %}
+
+        {% block script %}
+
+            {% block inline %}
+                {{doAction('login-head-inline-js')}}
+            {% endblock %}
+
+            {{doAction('login-head-js')}}
+
+        {% endblock %}
+
+    </head>
+
+    {% block body %}
+        <body data-page="login">
+    {% endblock %}
+
+{% endblock %}

@@ -1,0 +1,98 @@
+{% block header %}
+	<header class="header header-sticky p-0 mb-4">
+		<div class="container-fluid border-bottom px-4">
+
+			<button class="header-toggler" type="button" onclick="coreui.Sidebar.getInstance(document.querySelector('#sidebar')).toggle()" style="margin-inline-start: -14px;">
+				<i class="bi bi-list icon icon-lg"></i>
+			</button>
+
+			<ul class="header-nav ms-auto">
+				<li class="nav-item">
+					<a class="nav-link" href="/" target="_blank">
+						<i class="bi bi-play icon icon-lg"></i>
+						{{translate('Preview')}}
+					</a>
+				</li>
+			</ul>
+
+			<ul class="header-nav ms-auto">
+				<li class="nav-item d-none">
+					<a href="#" class="nav-link" target="_blank" disabled>
+						<i class="bi bi-code"></i>
+						{{translate('Quick Setup')}}
+					</a>
+				</li>
+			</ul>
+
+			<ul class="header-nav">
+
+				<li class="nav-item py-1 d-none">
+					<div class="vr h-100 mx-2 text-body text-opacity-75"></div>
+				</li>
+
+				<li class="nav-item dropdown d-none">
+					<button class="btn btn-link nav-link py-2 px-2 d-flex align-items-center" type="button" aria-expanded="false" data-coreui-toggle="dropdown">
+						<i class="bi bi-circle icon"></i>
+					</button>
+					<ul class="dropdown-menu dropdown-menu-end" style="--cui-dropdown-min-width: 8rem;">
+						<li>
+							<button class="dropdown-item d-flex align-items-center" type="button" data-coreui-theme-value="light">
+								<i class="bi bi-brightness-high me-3"></i>
+								Light
+							</button>
+						</li>
+						<li>
+							<button class="dropdown-item d-flex align-items-center" type="button" data-coreui-theme-value="dark">
+								<i class="bi bi-moon me-3"></i>
+								Dark
+							</button>
+						</li>
+						<li>
+							<button class="dropdown-item d-flex align-items-center active" type="button" data-coreui-theme-value="auto">
+								<i class="bi bi-circle me-3"></i>
+								Auto
+							</button>
+						</li>
+					</ul>
+				</li>
+
+				<li class="nav-item py-1 d-none">
+					<div class="vr h-100 mx-2 text-body text-opacity-75"></div>
+				</li>
+
+				<li class="nav-item dropdown">
+
+					<a class="nav-link py-0 pe-0" data-coreui-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+						<div class="avatar avatar-md">
+							<img class="avatar-img" src="{{getAssetUrl()}}/admin/img/avatar.png" alt="user@email.com">
+						</div>
+					</a>
+
+					<div class="dropdown-menu dropdown-menu-end pt-0">
+
+						<div class="dropdown-header bg-body-tertiary text-body-secondary fw-semibold my-2">
+							<div class="fw-semibold">{{user.name|default('Admin')}}</div>
+						</div>
+
+						<a href="/admin/user/c/" class="dropdown-item">
+							<i class="bi bi-person-gear"></i>
+							{{translate('Profile')}}
+						</a>
+
+						<div class="dropdown-divider"></div>
+
+						<a href="#" class="dropdown-item logout">
+						<i class="bi bi-escape icon"></i>
+							{{translate('Sign Out')}}
+						</a>
+
+					</div>
+
+				</li>
+
+			</ul>
+
+		</div>
+
+	</header>
+{% endblock %}

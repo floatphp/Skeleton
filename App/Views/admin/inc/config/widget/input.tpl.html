@@ -1,0 +1,47 @@
+<div class="col-md-{{input.column}}">
+	<div class="{{input.wrapper}}">
+
+		{% if input.label %}
+			<label class="form-label" for="{{input.id}}">
+				{{translate(input.label)}}
+				{% if input.required %}
+					(*)
+				{% endif %}
+			</label>
+		{% endif %}
+
+		{% set html = '<input' %}
+		{% set html = html ~ ' id="' ~ input.id ~ '"' %}
+		{% set html = html ~ ' name="' ~ input.name ~ '"' %}
+		{% set html = html ~ ' class="' ~ input.class ~ '"' %}
+		{% set html = html ~ ' value="' ~ input.value ~ '"' %}
+		{% set html = html ~ ' type="' ~ input.format|default('text') ~ '"' %}
+
+		{% if input.placeholder %}
+			{% set html = html ~ ' placeholder="' ~ input.placeholder ~ '"' %}
+		{% endif %}
+
+		{% if input.length %}
+			{% set html = html ~ ' maxlength="' ~ input.length ~ '"' %}
+		{% endif %}
+
+		{% if input.extras %}
+			{% set html = html ~ ' ' ~ input.extras %}
+		{% endif %}
+
+		{% if input.required %}
+			{% set html = html ~ ' required' %}
+		{% endif %}
+
+		{% set html = html ~ '>' %}
+
+		{{html|raw}}
+
+		{% if input.description %}
+			<p class="form-text">
+				{{translate(input.description)}}
+			</p>
+		{% endif %}
+
+	</div>
+</div>

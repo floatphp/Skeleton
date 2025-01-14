@@ -1,0 +1,14 @@
+{% block linking %}
+	<a href="/{{data.linking.notice}}/" rel="nofollow">
+		{{translate('Legal notices')}}
+	</a>
+	<span class="sep">|</span>
+	<a href="/{{data.linking.privacy}}/" rel="nofollow">
+		<img src="{{getAssetUrl()}}/front/img/privacy.svg" height="auto" width="auto" alt="Privacy">
+		{{translate('Privacy policy')}}
+	</a>
+	<span class="sep">|</span>
+	<a href="/{{data.linking.contact}}/" rel="nofollow">
+		{{translate('Contact')}}
+	</a>
+{% endblock %}

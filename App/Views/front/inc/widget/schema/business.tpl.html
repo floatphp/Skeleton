@@ -1,0 +1,42 @@
+{% block business %}
+
+    {% set baseUrl = getBaseUrl() %}
+    {% set pageUrl = baseUrl %}
+    {% set linking = data.linking %}
+
+    {% set profile = data.item %}
+    {% set detail = profile.data %}
+    {% set city = profile.city %}
+    {% set country = data.website.country %}
+
+    {% set pageUrl = baseUrl ~ '/' ~ linking.profile %}
+    {% set pageUrl = pageUrl ~ '/' ~ profile.slug ~ '/' %}
+
+    <script type="application/ld+json">
+        {
+            "@context": "http://schema.org",
+            "@type": "LocalBusiness",
+            "@id": "{{pageUrl}}",
+            "url": "{{pageUrl}}",
+            "name": "{{profile.name}}",
+            "image": {
+                "@type": "ImageObject",
+                "url": "{{getAssetUrl()}}/front/img/site.jpg",
+                "width": 800,
+                "height": 400
+            },
+            {% if detail.price %}
+                "priceRange": "$$$",
+            {% endif %}
+            "telephone": "{{detail.phone}}",
+            "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "{{detail.address}}",
+                "addressLocality": "{{city.name}}, {{country}}",
+                "postalCode": "{{city.postal|slice(0, 5)}}",
+                "addressCountry": "{{data.website.language|upper}}"
+            }
+        }
+    </script>
+
+{% endblock %}

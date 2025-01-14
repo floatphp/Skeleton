@@ -1,0 +1,112 @@
+{% block head %}
+
+	{% block doctype %}
+		<!DOCTYPE html>
+		<html lang="{{data.website.language}}">
+	{% endblock %}
+
+	<head>
+
+		{% block meta %}
+			<meta charset="utf-8">
+			<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+			<meta name="keywords" content="{{data.website.keyword}}">
+			<meta name="description" content="{{data.meta.description}}">
+			<meta name="author" content="{{data.website.author}}">
+			<meta name="publisher" content="{{data.website.domain}} Team (c)">
+			<meta name="generator" content="{{data.website.generator}}">
+			<meta name="date" content="{{data.website.update}}">
+			{{doAction('meta')}}
+		{% endblock %}
+
+		{% block title %}
+			<title>{{data.meta.title}}</title>
+		{% endblock %}
+
+        {% block base %}
+            <base href="{{data.website.baseurl|default('/')}}">
+        {% endblock %}
+
+		{% block theme %}
+			<meta name="theme-color" content="#54dba7">
+		{% endblock %}
+
+		{% block geo %}
+			<meta name="geo.region" content="{{data.website.language|upper}}">
+			<meta name="geo.placename" content="{{data.website.country}}">
+		{% endblock %}
+
+		{% block opengraph %}
+			{% if data.modules.opengraph == 'on' %}
+				<meta property="og:type" content="website">
+				<meta property="og:url" content="{{getBaseUrl()}}">
+				<meta property="og:title" content="{{data.meta.title}}">
+				<meta property="og:description" content="{{data.meta.description}}">
+				<meta property="og:image" content="{{getAssetUrl()}}/front/img/site.jpg">
+			{% endif %}
+		{% endblock %}
+
+		{% block alter %}
+			<link rel="canonical" href="{{getBaseUrl()}}">
+			<link rel="alternate" hreflang="fr-FR" href="{{getBaseUrl()}}">
+		{% endblock %}
+
+		{% block favicon %}
+			<link rel="icon" type="image/png" href="{{getAssetUrl()}}/front/img/favicon.png">
+			<link rel="apple-touch-icon" sizes="60x60" href="{{getAssetUrl()}}/front/img/favicon.png">
+		{% endblock %}
+
+		{% block style %}
+
+			{% block vendor %}
+				{% if isDebug() %}
+					<link rel="stylesheet" type="text/css" href="{{getAssetUrl()}}/vendor/icons/icons.min.css">
+				{% else %}
+				{% endif %}
+				{{doAction('css')}}
+			{% endblock %}
+
+			{% block main %}
+				{% if isDebug() %}
+					<link rel="stylesheet" type="text/css" href="{{getAssetUrl()}}/{{theme}}/css/style.css">
+					<link rel="stylesheet" type="text/css" href="{{getAssetUrl()}}/{{theme}}/css/custom.css">
+					<link rel="stylesheet" type="text/css" href="{{getAssetUrl()}}/{{theme}}/css/quote.css">
+				{% else %}
+					<link rel="stylesheet" type="text/css" href="{{getAssetUrl()}}/{{theme}}/css/style.min.css">
+				{% endif %}
+				{{doAction('main-css')}}
+			{% endblock %}
+
+		{% endblock %}
+
+		{% block script %}
+
+			{% block inline %}
+
+				{% block analytics %}
+					{% if data.modules.analytics == 'on' %}
+						{% if data.website.analytics %}
+							<script>
+								{{data.website.analytics|raw}}
+							</script>
+						{% endif %}
+					{% endif %}
+				{% endblock %}
+
+				{{doAction('head-inline-js')}}
+
+			{% endblock %}
+
+			{{doAction('head-js')}}
+
+		{% endblock %}
+
+		{{doAction('head')}}
+
+	</head>
+{% endblock %}
+
+{% block body %}
+	{% set page = data.website.page %}
+	<body id="page-top" data-page="{{page}}">
+{% endblock %}

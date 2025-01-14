@@ -1,0 +1,82 @@
+{% block article %}
+
+	{% set baseUrl = getBaseUrl() %}
+	{% set pageUrl = baseUrl %}
+	{% set parentUrl = baseUrl %}
+	{% set linking = data.linking %}
+
+	{% if data.website.page == 'department' %}
+
+		{% set pageUrl = baseUrl ~ '/' ~ linking.department %}
+		{% set pageUrl = pageUrl ~ '/' ~ data.item.slug ~ '/' %}
+
+	{% elseif data.website.page == 'city' %}
+
+		{% set city = data.item %}
+		{% set dep = city.department %}
+
+		{% set pageUrl = baseUrl ~ '/' ~ linking.city %}
+		{% set pageUrl = pageUrl ~ '/' ~ city.slug ~ '/' %}
+
+		{% set parentUrl = baseUrl ~ '/' ~ linking.department %}
+		{% set parentUrl = parentUrl ~ '/' ~ dep.slug ~ '/' %}
+
+	{% elseif data.website.page == 'profile' %}
+
+		{% set profile = data.item %}
+		{% set city = profile.city %}
+
+		{% set pageUrl = baseUrl ~ '/' ~ linking.profile %}
+		{% set pageUrl = pageUrl ~ '/' ~ profile.slug ~ '/' %}
+
+		{% set parentUrl = baseUrl ~ '/' ~ linking.city %}
+		{% set parentUrl = parentUrl ~ '/' ~ city.slug ~ '/' %}
+
+	{% endif %}
+
+	<script type="application/ld+json">
+		{
+			"@context": "http://schema.org/",
+			"@type": "Article",
+			"url": "{{pageUrl}}",
+			"mainEntityOfPage": "{{parentUrl}}",
+			"description": "{{data.meta.description|raw}}",
+			"author": {
+				"@type": "Person",
+				"name": "{{data.website.author}}",
+				"url": "{{baseUrl}}"
+			},
+			"headline": "{{data.heading.title|raw}}",
+			"datePublished": "{{data.website.publish}}",
+			"dateModified": "{{data.website.update}}",
+			"image": {
+				"@type": "ImageObject",
+				"url": "{{getAssetUrl()}}/front/img/site.jpg",
+				"width": 800,
+				"height": 400
+			},
+			"ArticleSection": "{{data.website.thematic}}",
+			{% if data.rating %}
+				"aggregateRating": {
+					"@type": "aggregateRating",
+					"ratingValue": "{{data.rating.average|round}}",
+					"bestRating": "5",
+					"worstRating": "1",
+					"ratingCount": "{{data.rating.total}}"
+				},
+			{% endif %}
+			"Publisher": {
+				"@type": "Organization",
+				"name": "{{data.website.domain}} Team (c)",
+				"url": "{{baseUrl}}/{{data.linking.notice}}/",
+				"logo": {
+					"@type": "ImageObject",
+					"url": "{{getAssetUrl()}}/front/img/logo.png",
+					"width": 170,
+					"height": 60
+				}
+			}
+		}
+	</script>
+
+{% endblock %}

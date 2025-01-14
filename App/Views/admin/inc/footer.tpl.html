@@ -1,0 +1,31 @@
+{% block footer %}
+	<footer class="footer px-4">
+
+		{% block left %}
+			<div class="copyright">
+				<span>Generator |</span>
+				<a href="/api/v2/" target="_blank">API</a>
+			</div>
+		{% endblock %}
+
+		{% block right %}
+			<div class="footer-right ms-auto">
+				{% if isDebug() %}
+					<span class="badge --debug-badge rounded-pill bg-dark">
+						<i class="typcn typcn-info"></i>
+						Debug
+						{% if execution %}
+							{{execution}}s
+						{% endif %}
+					</span>
+				{% endif %}
+				Version:
+				<a href="https://bitbucket.org/floatphp/workspace/projects/GEN" target="_blank">6.1.4</a>
+			</div>
+		{% endblock %}
+
+	</footer>
+
+	{{ doAction('after-footer') }}
+	
+{% endblock %}
