@@ -36,7 +36,7 @@
             {% if isDebug() %}
                 {% set ext = 'js' %}
             {% endif %}
-            <script src="{{getAssetUrl()}}/{{theme}}/js/main.{{ext}}" defer></script>
+            <script src="{{getAssetUrl()}}/front/js/main.{{ext}}" defer></script>
             {{doAction('main-js')}}
         {% endblock %}
 

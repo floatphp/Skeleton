@@ -20,14 +20,9 @@
 				<div class="collapse navbar-collapse" id="mobile-nav">
 					<ul class="navbar-nav ms-auto my-2 my-lg-0">
 
-						{% for key, menu in data.menu %}
-							{% set key = key + 1 %}
-							{% if menu.text %}
 								<li class="nav-item item-{{key}}">
-									<span data-target="{{menu.link}}" class="nav-link">{{menu.text|raw}}</span>
+									<a href="/admin/login/h/" class="nav-link">Admin</a>
 								</li>
-							{% endif %}
-						{% endfor %}
 
 						{{doAction('menu')}}
 
