@@ -68,11 +68,11 @@
 
 			{% block main %}
 				{% if isDebug() %}
-					<link rel="stylesheet" type="text/css" href="{{getAssetUrl()}}/{{theme}}/css/style.css">
-					<link rel="stylesheet" type="text/css" href="{{getAssetUrl()}}/{{theme}}/css/custom.css">
-					<link rel="stylesheet" type="text/css" href="{{getAssetUrl()}}/{{theme}}/css/quote.css">
+					<link rel="stylesheet" type="text/css" href="{{getAssetUrl()}}/front/css/style.css">
+					<link rel="stylesheet" type="text/css" href="{{getAssetUrl()}}/front/css/custom.css">
+					<link rel="stylesheet" type="text/css" href="{{getAssetUrl()}}/front/css/quote.css">
 				{% else %}
-					<link rel="stylesheet" type="text/css" href="{{getAssetUrl()}}/{{theme}}/css/style.min.css">
+					<link rel="stylesheet" type="text/css" href="{{getAssetUrl()}}/front/css/style.min.css">
 				{% endif %}
 				{{doAction('main-css')}}
 			{% endblock %}
