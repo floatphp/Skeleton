@@ -2,10 +2,7 @@
 *.lock
 *.bak.*
 *.zip
-!.build/*.zip
-!.build/*/*.zip
-.build/release/*
-.build/release*
+.build
 App/vendor
 App/Storage/cache/*
 App/Storage/logs/*
