@@ -12785,3 +12785,60 @@ header.masthead .h1 {
     font-size: 3.5rem;
   }
 }
+
+/* ----------------------------- */
+/* custom */
+/* ----------------------------- */
+img {
+  -webkit-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  -ms-user-drag: none;
+  user-drag: none;
+}
+
+[data-target] {
+  cursor: pointer;
+}
+
+.navbar-toggler {
+  border: 3px solid;
+}
+
+header.masthead {
+  height: 100vh;
+}
+
+footer p {
+  margin: 0;
+}
+
+footer a {
+  display: block;
+}
+
+footer .sep {
+  display: none;
+  margin: 0 0.25rem;
+}
+
+@media (min-width: 992px) {
+
+  .navbar .container {
+    position: relative;
+  }
+
+  .navbar .container .--logo {
+    position: absolute;
+    top: -1.2rem;
+  }
+
+  footer .sep {
+    display: inline-block;
+  }
+
+  footer a {
+    display: inline-block;
+  }
+
+}

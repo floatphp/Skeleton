@@ -10,7 +10,7 @@
 		{% block meta %}
 			<meta charset="utf-8">
 			<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-			<meta name="generator" content="{{data.website.generator}}">
+			<meta name="generator" content="FloatPHP">
 			<meta name="robots" content="noindex">
 			{{doAction('meta')}}
 		{% endblock %}
@@ -39,10 +39,10 @@
 
 			{% block main %}
 				{% if isDebug() %}
-					<link rel="stylesheet" type="text/css" href="{{getAssetUrl()}}/front/theme/default/css/style.css">
-					<link rel="stylesheet" type="text/css" href="{{getAssetUrl()}}/front/theme/default/css/custom.css">
+					<link rel="stylesheet" type="text/css" href="{{getAssetUrl()}}/front/css/style.css">
+					<link rel="stylesheet" type="text/css" href="{{getAssetUrl()}}/front/css/custom.css">
 				{% else %}
-					<link rel="stylesheet" type="text/css" href="{{getAssetUrl()}}/front/theme/default/css/style.min.css">
+					<link rel="stylesheet" type="text/css" href="{{getAssetUrl()}}/front/css/style.min.css">
 				{% endif %}
 				{{doAction('main-css')}}
 			{% endblock %}

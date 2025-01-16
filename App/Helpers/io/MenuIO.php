@@ -16,6 +16,9 @@ namespace App\Helpers\io;
 
 use \FloatPHP\Helpers\Html\Menu;
 
+/**
+ * Menu helper.
+ */
 final class MenuIO
 {
 	/**
@@ -25,10 +28,6 @@ final class MenuIO
 	 */
 	public static function get() : array
 	{
-		$user = UserIO::get();
-		$userId = $user['userId'] ?? 0;
-
-		return (new Menu($userId, 'en'))
-			->prepare()->generate();
+		return (new Menu())->prepare()->generate();
 	}
 }

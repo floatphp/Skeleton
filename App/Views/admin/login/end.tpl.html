@@ -30,11 +30,7 @@
 		{% endblock %}
 
 		{% block main %}
-			{% if isDebug() %}
-				<script src="{{getAssetUrl()}}/admin/js/login.js" defer></script>
-			{% else %}
-				<script src="{{getAssetUrl()}}/admin/js/login.min.js" defer></script>
-			{% endif %}
+			<script src="{{getAssetUrl()}}/admin/js/login.js" defer></script>
 			{{doAction('login-main-js')}}
 		{% endblock %}
 

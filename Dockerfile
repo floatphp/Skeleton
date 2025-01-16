@@ -7,7 +7,7 @@ WORKDIR /var/www/html
 # PHP extensions
 RUN docker-php-ext-install pdo_mysql mysqli
 
-# Copy the application files to the container
+# Copy application files
 COPY . .
 
 # Expose port 80

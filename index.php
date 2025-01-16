@@ -19,8 +19,7 @@ include "{$root}/App/App.php";
 // Init App
 App::start(config: [
 	'--enable-maintenance' => false,
-	'--disable-database'   => false,
-	'--default-lang'       => 'en'
+	'--disable-database'   => false
 ]);
 
 // Nothing to run here!

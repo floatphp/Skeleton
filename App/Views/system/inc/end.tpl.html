@@ -17,13 +17,7 @@
                     assetUrl: '{{getAssetUrl()}}',
                     lang: "{{getLanguage()}}",
                     timeout: {{getTimeout()}},
-                    token: "{{getToken()}}",
-                    data: {
-                        "website": {{toJson(data.website)|raw}},
-                        "modules": {{toJson(data.modules)|raw}},
-                        "linking": {{toJson(data.linking)|raw}},
-                        "strings": {{toJson(data.strings)|raw}},
-                    }
+                    token: "{{getToken()}}"
                 };
                 {{doAction('config-js')}}
             </script>

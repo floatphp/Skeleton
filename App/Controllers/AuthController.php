@@ -14,7 +14,7 @@ declare(strict_types=1);
 
 namespace App\Controllers;
 
-use App\Helpers\inc\{IO, Repo};
+use App\Helpers\inc\Repo;
 use FloatPHP\Kernel\AbstractAuthController;
 use FloatPHP\Helpers\Framework\Security;
 
@@ -26,8 +26,7 @@ final class AuthController extends AbstractAuthController
 	public function __construct()
 	{
 		// Security
-		(new Security())->useStrongPassword()
-			->useLimitedAttempt();
+		(new Security())->useLimitedAttempt();
 	}
 
 	/**
@@ -37,9 +36,7 @@ final class AuthController extends AbstractAuthController
 	 */
 	public function index() : void
 	{
-		$this->render('admin/login/index', [
-			'strings' => IO::i('translation')->get()
-		]);
+		$this->render('admin/login/index');
 	}
 
 	/**

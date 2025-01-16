@@ -10,14 +10,13 @@
         {% block meta %}
             <meta charset="utf-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-            <meta name="theme-color" content="#5856d6">
             <meta name="generator" content="FloatPHP">
             <meta name="robots" content="noindex, nofollow">
             {{doAction('meta')}}
         {% endblock %}
 
         {% block title %}
-            <title>{{heading|default('Generator')}}</title>
+            <title>FloatPHP Skeleton</title>
         {% endblock %}
 
         {% block base %}
@@ -35,9 +34,6 @@
         {% block style %}
 
 			{% block vendor %}
-				{% if isDebug() %}
-				{% else %}
-				{% endif %}
                 <link rel="stylesheet" type="text/css" href="{{getAssetUrl()}}/vendor/icons/icons.min.css">
                 <link rel="stylesheet" type="text/css" href="{{getAssetUrl()}}/admin/vendor/simplebar/css/simplebar.css">
                 <link rel="stylesheet" type="text/css" href="{{getAssetUrl()}}/admin/vendor/confirm/jquery-confirm.min.css">
@@ -46,11 +42,7 @@
 			{% endblock %}
 
 			{% block main %}
-                {% if isDebug() %}
-                    <link rel="stylesheet" type="text/css" href="{{getAssetUrl()}}/admin/css/style.css">
-                {% else %}
-                    <link rel="stylesheet" type="text/css" href="{{getAssetUrl()}}/admin/css/style.min.css">
-                {% endif %}
+                <link rel="stylesheet" type="text/css" href="{{getAssetUrl()}}/admin/css/style.css">
 				{{doAction('main-css')}}
 			{% endblock %}
 
