@@ -2,23 +2,11 @@
 {% block content %}
 	<div class="bg-body-tertiary min-vh-100 d-flex flex-row align-items-center">
 		<div class="container">
-			<div class="row justify-content-center">
-				<div class="col-12 text-center">
-					<img src="{{getAssetUrl()}}/front/img/page.svg" class="img-fluid rounded mb-3" height="auto" width="256" alt="page">
-				</div>
-			</div>
 			<div class="row justify-content-center align-items-center gap-1">
-				<div class="col-md-4 --error-code">
-					<h1 class="display-3">{{code}}</h1>
-				</div>
-				<div class="col-md-6 --error-message">
-					<h5>{{translate('Oh! You are lost')}}</h5>
-					{% set message = 'This page does not exist' %}
-					{% set status = translate(status) %}
-					{% if error != status %}
-						{% set message = error %}
-					{% endif %}
-					<span>{{translate(message)}}.</span>
+				<div class="col-12 text-center">
+					<img src="{{getAssetUrl()}}/front/img/default.svg" class="img-fluid rounded mb-3" height="auto" width="256" alt="page">
+					<h1 class="display-3 m-2">{{code}}</h1>
+					<p class="m-0">{{translate('Oh! You are lost')}}</p>
 					<a href="/">{{translate('Back to home page')}}</a>
 				</div>
 			</div>

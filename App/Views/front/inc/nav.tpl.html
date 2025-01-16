@@ -19,13 +19,19 @@
 			{% block menu %}
 				<div class="collapse navbar-collapse" id="mobile-nav">
 					<ul class="navbar-nav ms-auto my-2 my-lg-0">
-
-								<li class="nav-item item-{{key}}">
-									<a href="/admin/login/h/" class="nav-link">Admin</a>
-								</li>
-
+						<li class="nav-item">
+							<a href="/" class="nav-link">Home</a>
+						</li>
+						<li class="nav-item">
+							<a href="/admin/login/h/" class="nav-link">Login</a>
+						</li>
+						<li class="nav-item">
+							<a href="/api/v2/" class="nav-link">API</a>
+						</li>
+						<li class="nav-item">
+							<a href="/404/" class="nav-link">404</a>
+						</li>
 						{{doAction('menu')}}
-
 					</ul>
 				</div>
 			{% endblock %}

@@ -19,6 +19,9 @@ use FloatPHP\Helpers\Http\Submitter;
 use FloatPHP\Helpers\Filesystem\Cache;
 use FloatPHP\Classes\Filesystem\Stringify;
 
+/**
+ * Config helper.
+ */
 final class ConfigIO
 {
 	/**

@@ -3,15 +3,11 @@
 	{% block script %}
 
         {% block vendor %}
-			{% if isDebug() %}
-				<script src="{{getAssetUrl()}}/vendor/jquery/jquery.min.js"></script>
-				<script src="{{getAssetUrl()}}/vendor/vanille/VanillePlugin.min.js"></script>
-            {% else %}
-				<script src="{{getAssetUrl()}}/vendor/all.min.js"></script>
-            {% endif %}
+			<script src="{{getAssetUrl()}}/vendor/jquery/jquery.min.js"></script>
 			<script src="{{getAssetUrl()}}/admin/vendor/simplebar/js/simplebar.min.js"></script>
 			<script src="{{getAssetUrl()}}/admin/vendor/@coreui/coreui/js/coreui.bundle.min.js"></script>
 			<script src="{{getAssetUrl()}}/admin/vendor/confirm/jquery-confirm.min.js"></script>
+			<script src="{{getAssetUrl()}}/vendor/vanille/VanillePlugin.min.js"></script>
 			{{doAction('js')}}
 		{% endblock %}
 
@@ -36,11 +32,7 @@
 		{% endblock %}
 
 		{% block main %}
-			{% if isDebug() %}
-				<script src="{{getAssetUrl()}}/admin/js/main.js" defer></script>
-			{% else %}
-				<script src="{{getAssetUrl()}}/admin/js/main.min.js" defer></script>
-			{% endif %}
+			<script src="{{getAssetUrl()}}/admin/js/main.js" defer></script>
 			{{doAction('main-js')}}
 		{% endblock %}
 

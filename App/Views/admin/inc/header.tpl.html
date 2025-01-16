@@ -6,59 +6,16 @@
 				<i class="bi bi-list icon icon-lg"></i>
 			</button>
 
-			<ul class="header-nav ms-auto">
+			<ul class="header-nav ms-right">
 				<li class="nav-item">
 					<a class="nav-link" href="/" target="_blank">
 						<i class="bi bi-play icon icon-lg"></i>
-						{{translate('Preview')}}
-					</a>
-				</li>
-			</ul>
-
-			<ul class="header-nav ms-auto">
-				<li class="nav-item d-none">
-					<a href="#" class="nav-link" target="_blank" disabled>
-						<i class="bi bi-code"></i>
-						{{translate('Quick Setup')}}
+						{{translate('Home')}}
 					</a>
 				</li>
 			</ul>
 
 			<ul class="header-nav">
-
-				<li class="nav-item py-1 d-none">
-					<div class="vr h-100 mx-2 text-body text-opacity-75"></div>
-				</li>
-
-				<li class="nav-item dropdown d-none">
-					<button class="btn btn-link nav-link py-2 px-2 d-flex align-items-center" type="button" aria-expanded="false" data-coreui-toggle="dropdown">
-						<i class="bi bi-circle icon"></i>
-					</button>
-					<ul class="dropdown-menu dropdown-menu-end" style="--cui-dropdown-min-width: 8rem;">
-						<li>
-							<button class="dropdown-item d-flex align-items-center" type="button" data-coreui-theme-value="light">
-								<i class="bi bi-brightness-high me-3"></i>
-								Light
-							</button>
-						</li>
-						<li>
-							<button class="dropdown-item d-flex align-items-center" type="button" data-coreui-theme-value="dark">
-								<i class="bi bi-moon me-3"></i>
-								Dark
-							</button>
-						</li>
-						<li>
-							<button class="dropdown-item d-flex align-items-center active" type="button" data-coreui-theme-value="auto">
-								<i class="bi bi-circle me-3"></i>
-								Auto
-							</button>
-						</li>
-					</ul>
-				</li>
-
-				<li class="nav-item py-1 d-none">
-					<div class="vr h-100 mx-2 text-body text-opacity-75"></div>
-				</li>
 
 				<li class="nav-item dropdown">
 
@@ -73,11 +30,6 @@
 						<div class="dropdown-header bg-body-tertiary text-body-secondary fw-semibold my-2">
 							<div class="fw-semibold">{{user.name|default('Admin')}}</div>
 						</div>
-
-						<a href="/admin/user/c/" class="dropdown-item">
-							<i class="bi bi-person-gear"></i>
-							{{translate('Profile')}}
-						</a>
 
 						<div class="dropdown-divider"></div>
 

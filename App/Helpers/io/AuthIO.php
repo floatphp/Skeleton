@@ -15,10 +15,7 @@ declare(strict_types=1);
 namespace App\Helpers\io;
 
 use FloatPHP\Classes\Security\Encryption;
-use FloatPHP\Helpers\{
-	Framework\Configurator,
-	Filesystem\Cache
-};
+use FloatPHP\Helpers\Framework\Configurator;
 
 final class AuthIO
 {

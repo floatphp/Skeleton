@@ -25,8 +25,7 @@ final class AdminController extends BackendController
 	public function __construct()
 	{
 		parent::__construct([
-			'menu'    => IO::i('menu')::get(),
-			'strings' => IO::i('translation')->get()
+			'menu' => IO::i('menu')::get()
 		]);
 	}
 
@@ -58,6 +57,7 @@ final class AdminController extends BackendController
 	public function configIndex(string $name) : void
 	{
 		$inputs = IO::i('input')->set($name)->get();
+
 		$this->render('admin/config/index', ['inputs' => $inputs]);
 	}
 
@@ -86,8 +86,7 @@ final class AdminController extends BackendController
 	{
 		$this->verifyRequest();
 
-		$force = $this->isDebug();
-		if ( IO::i(name: 'config')->purge($force) ) {
+		if ( IO::i(name: 'config')->purge() ) {
 			$this->setResponse('Item deleted');
 		}
 

@@ -3,7 +3,7 @@
 
 		{% block left %}
 			<div class="copyright">
-				<span>Generator |</span>
+				<span>FloatPHP Skeleton | </span>
 				<a href="/api/v2/" target="_blank">API</a>
 			</div>
 		{% endblock %}
@@ -13,10 +13,7 @@
 				{% if isDebug() %}
 					<span class="badge --debug-badge rounded-pill bg-dark">
 						<i class="typcn typcn-info"></i>
-						Debug
-						{% if execution %}
-							{{execution}}s
-						{% endif %}
+						Debug {% if execution %}{{execution}}s{% endif %}
 					</span>
 				{% endif %}
 				Version:

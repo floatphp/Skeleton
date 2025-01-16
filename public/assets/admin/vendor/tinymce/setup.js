@@ -3,7 +3,7 @@ var doEditor = function () {
         selector: 'textarea.--editable:not([disabled])',
         license_key: 'gpl',
         branding: false,
-        language: 'fr_FR',
+        language: 'en_US',
         plugins: 'code link image lists table help preview quickbars wordcount',
         toolbar: 'undo redo | bold italic underline | alignleft aligncenter alignright alignjustify | link image numlist bullist |code preview help',
         relative_urls: false,

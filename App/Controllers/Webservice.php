@@ -41,7 +41,8 @@ final class Webservice extends ApiController
 	public function isHttpAuthenticated() : bool
 	{
 		// Init security
-		(new Security())->useTokenOnly()
+		(new Security())
+			->useTokenOnly()
 			->useAccessProtection();
 
 		// Admin access
