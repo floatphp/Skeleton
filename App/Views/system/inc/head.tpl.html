@@ -38,12 +38,7 @@
 			{% endblock %}
 
 			{% block main %}
-				{% if isDebug() %}
-					<link rel="stylesheet" type="text/css" href="{{getAssetUrl()}}/front/css/style.css">
-					<link rel="stylesheet" type="text/css" href="{{getAssetUrl()}}/front/css/custom.css">
-				{% else %}
-					<link rel="stylesheet" type="text/css" href="{{getAssetUrl()}}/front/css/style.min.css">
-				{% endif %}
+				<link rel="stylesheet" type="text/css" href="{{getAssetUrl()}}/front/css/style.css">
 				{{doAction('main-css')}}
 			{% endblock %}
 

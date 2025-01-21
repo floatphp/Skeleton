@@ -1,5 +1,5 @@
 /**
- * Lib : GeneratorCMS
+ * Lib : FloatPHP Skeleton
  */
 (function ($, Plugin) {
 
@@ -13,6 +13,8 @@
 	 */
 	$(document).ready(function () {
 
+		console.log(Plugin)
+
 		// isConnected
 		Plugin.func.isConnected();
 
@@ -22,16 +24,16 @@
 		// update
 		Plugin.func.update();
 
-		// doScroll
-		doScroll();
+		// initScroll
+		initScroll();
 
-		// doEditor (External)
-		doEditor();
+		// initEditor
+		initEditor();
 
 	});
 
-	// doScroll
-	function doScroll() {
+	// initScroll
+	function initScroll() {
 		$(window).scroll(function () {
 			const header = $('header.header');
 			if (header.length) {
@@ -46,6 +48,16 @@
 				$('.header-toggler').css('visibility', 'visible');
 			}
 		});
+	}
+
+	// initEditor
+	function initEditor() {
+		const config = {
+			"selector": 'textarea.--editable:not([disabled])',
+			"license_key": 'gpl',
+			"branding": false
+		}
+		tinymce.init(config);
 	}
 
 })(jQuery, globalVars);

@@ -3,11 +3,12 @@
 	{% block script %}
 
         {% block vendor %}
-			<script src="{{getAssetUrl()}}/vendor/jquery/jquery.min.js"></script>
-			<script src="{{getAssetUrl()}}/admin/vendor/simplebar/js/simplebar.min.js"></script>
-			<script src="{{getAssetUrl()}}/admin/vendor/@coreui/coreui/js/coreui.bundle.min.js"></script>
-			<script src="{{getAssetUrl()}}/admin/vendor/confirm/jquery-confirm.min.js"></script>
-			<script src="{{getAssetUrl()}}/vendor/vanille/VanillePlugin.min.js"></script>
+			<script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+			<script src="https://cdn.jsdelivr.net/npm/simplebar@6.3.0/dist/simplebar.min.js"></script>
+			<script src="https://cdn.jsdelivr.net/npm/@coreui/coreui@5.2.0/dist/js/coreui.bundle.min.js"></script>
+			<script src="https://cdn.jsdelivr.net/npm/jquery-confirm@3.3.4/dist/jquery-confirm.min.js"></script>
+			<script src="https://cdn.jsdelivr.net/npm/tinymce@7.6.0/tinymce.min.js"></script>
+			<script src="https://cdn.jsdelivr.net/gh/Jakiboy/Vanille@main/dist/VanillePlugin.min.js"></script>
 			{{doAction('js')}}
 		{% endblock %}
 
