@@ -2,7 +2,7 @@
 
 	{% block doctype %}
 		<!DOCTYPE html>
-		<html lang="{{data.website.language}}">
+		<html lang="en">
 	{% endblock %}
 
 	<head>
@@ -35,33 +35,22 @@
 		{% block style %}
 
 			{% block vendor %}
-				{% if isDebug() %}
-					<link rel="stylesheet" type="text/css" href="{{getAssetUrl()}}/vendor/icons/icons.min.css">
-				{% else %}
-				{% endif %}
+				<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 				{{doAction('css')}}
 			{% endblock %}
 
 			{% block main %}
-				{% if isDebug() %}
-					<link rel="stylesheet" type="text/css" href="{{getAssetUrl()}}/front/css/style.css">
-					<link rel="stylesheet" type="text/css" href="{{getAssetUrl()}}/front/css/custom.css">
-				{% else %}
-					<link rel="stylesheet" type="text/css" href="{{getAssetUrl()}}/front/css/style.min.css">
-				{% endif %}
+				<link rel="stylesheet" type="text/css" href="{{getAssetUrl()}}/front/css/style.css">
 				{{doAction('main-css')}}
 			{% endblock %}
 
 		{% endblock %}
 
 		{% block script %}
-
 			{% block inline %}
 				{{doAction('head-inline-js')}}
 			{% endblock %}
-
 			{{doAction('head-js')}}
-
 		{% endblock %}
 
 		{{doAction('head')}}

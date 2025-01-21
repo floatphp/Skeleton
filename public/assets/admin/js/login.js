@@ -1,5 +1,5 @@
 /**
- * Lib : GeneratorCMS
+ * Lib : FloatPHP Skeleton
  */
 (function ($, Plugin) {
 
@@ -12,9 +12,6 @@
 	 * Ready
 	 */
 	$(document).ready(function () {
-
-		// serviceWorker
-		Plugin.func.serviceWorker();
 
 		// isConnected
 		Plugin.func.isConnected();

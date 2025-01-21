@@ -3,10 +3,7 @@
     {% block script %}
 
         {% block vendor %}
-            {% if isDebug() %}
-            {% else %}
-            {% endif %}
-            <script src="{{getAssetUrl()}}/admin/vendor/@coreui/coreui/js/coreui.bundle.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/@coreui/coreui@5.2.0/dist/js/coreui.bundle.min.js"></script>
             {{doAction('js')}}
         {% endblock %}
 
@@ -24,10 +21,6 @@
         {% endblock %}
 
         {% block main %}
-            {% set ext = 'min.js' %}
-            {% if isDebug() %}
-                {% set ext = 'js' %}
-            {% endif %}
             {{doAction('main-js')}}
         {% endblock %}
 
