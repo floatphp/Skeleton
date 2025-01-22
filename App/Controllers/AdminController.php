@@ -76,20 +76,4 @@ final class AdminController extends BackendController
 
 		$this->setResponse('Unable to update', [], 'warning');
 	}
-
-	/**
-	 * cache : [DELETE] /admin/cache/
-	 *
-	 * @inheritdoc
-	 */
-	public function cache() : void
-	{
-		$this->verifyRequest();
-
-		if ( IO::i(name: 'config')->purge() ) {
-			$this->setResponse('Item deleted');
-		}
-
-		$this->setResponse('Unable to delete', [], 'warning');
-	}
 }
