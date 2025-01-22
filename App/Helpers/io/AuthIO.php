@@ -17,23 +17,11 @@ namespace App\Helpers\io;
 use FloatPHP\Classes\Security\Encryption;
 use FloatPHP\Helpers\Framework\Configurator;
 
+/**
+ * Auth helper.
+ */
 final class AuthIO
 {
-	/**
-	 * Generate auth.
-	 *
-	 * @access public
-	 * @param array $input
-	 * @return string
-	 */
-	public static function generate(array $input) : string
-	{
-		$user = $input['user'] ?? '';
-		$pswd = $input['pswd'] ?? '';
-
-		return self::generateToken($user, $pswd);
-	}
-
 	/**
 	 * Generate token.
 	 *

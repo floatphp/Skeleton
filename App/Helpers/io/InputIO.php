@@ -35,7 +35,6 @@ final class InputIO
 	private $default = [];
 	private $values = [];
 	private $inputs = [];
-	private const PUBLISH = '2018-01-01T09:00:29+01:00';
 
 	/**
 	 * Init.
@@ -62,14 +61,12 @@ final class InputIO
 		$this->default = $io->get($default);
 		$this->data = $io->get($name);
 
-		$defined = [];
-		$defined['publish'] = self::PUBLISH;
-		$defined['update'] = Date::get('now', 'Y-m-d\TH:i:sP');
-
 		$this->values = $values;
 
 		$file = "{$this->path}/{$name}.json";
-		$this->inputs = $this->parseJson($file, true) ?: [];
+		if ( $this->isFile($file) ) {
+			$this->inputs = $this->parseJson($file, true) ?: [];
+		}
 
 		return $this;
 	}

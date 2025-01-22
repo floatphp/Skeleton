@@ -43,7 +43,7 @@
 			"extension": ".tpl.html"
 		},
 		"debug": true,
-		"environment": "dev",
+		"environment": "prod",
 		"timeout": 10,
 		"ttl": 604800
 	},

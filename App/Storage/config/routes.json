@@ -52,20 +52,6 @@
 		},
 		{
 			"method": "GET",
-			"route": "/admin/[:name]/p/",
-			"controller": "AdminController@pageIndex",
-			"name": "adminPageIndex",
-			"permission": "administrator"
-		},
-		{
-			"method": "POST",
-			"route": "/admin/[:name]/p/",
-			"controller": "AdminController@pageUpdate",
-			"name": "adminPageUpdate",
-			"permission": "administrator"
-		},
-		{
-			"method": "GET",
 			"route": "/admin/[:name]/c/",
 			"controller": "AdminController@configIndex",
 			"name": "configIndex",
@@ -76,13 +62,6 @@
 			"route": "/admin/[:name]/c/",
 			"controller": "AdminController@configUpdate",
 			"name": "configUpdate",
-			"permission": "administrator"
-		},
-		{
-			"method": "DELETE",
-			"route": "/admin/cache/",
-			"controller": "AdminController@cache",
-			"name": "cache",
 			"permission": "administrator"
 		}
 	]
