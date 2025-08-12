@@ -1,16 +1,3 @@
 * text=auto
 * text eol=lf
-
-/.github export-ignore
-/.build export-ignore
-/.release export-ignore
-/tests export-ignore
-.gitignore export-ignore
-.gitattributes export-ignore
-composer.json export-ignore
-LICENSE export-ignore
-README.md export-ignore
-CODE-OF-CONDUCT.md export-ignore
-CONTRIBUTING.md export-ignore
-SECURITY.md export-ignore
 * !text !filter !merge !diff
