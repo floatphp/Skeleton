@@ -9,4 +9,6 @@ README.md export-ignore
 CODE-OF-CONDUCT.md export-ignore
 CONTRIBUTING.md export-ignore
 SECURITY.md export-ignore
-* !text !filter !merge !diff
+*.html linguist-detectable=false
+*.css linguist-detectable=false
+*.js linguist-detectable=false
