@@ -18,9 +18,9 @@ include "{$root}/App/App.php";
 
 // Init App
 App::start(config: [
-	'--disable-setup'      => false,
+	'--enable-setup'       => true,
+	'--enable-database'    => true,
 	'--enable-maintenance' => false,
-	'--disable-database'   => false
 ]);
 
 // Nothing to run here!
