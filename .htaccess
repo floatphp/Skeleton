@@ -15,7 +15,7 @@
 <IfModule mod_rewrite.c>
     RewriteEngine On
     RewriteCond %{HTTP_REFERER} !^$
-    RewriteCond %{HTTP_REFERER} !^https?://(www\.)?gen.com/ [NC]
+    RewriteCond %{HTTP_REFERER} !^https?://.*skeleton.dev/ [NC]
     RewriteRule \.(jpg|jpeg|png|gif)$ - [F,NC,L]
 </IfModule>
 
@@ -181,4 +181,4 @@ Deny from env=HTTP_SAFE_BADBOT
 # SetHandler application/x-httpd-php82
 # </FilesMatch>
 # AddHandler application/x-httpd-php82 .php
-# suPHP_ConfigPath /__DOMAIN__/php.ini
+# suPHP_ConfigPath /skeleton.dev/php.ini
