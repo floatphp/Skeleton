@@ -13,6 +13,7 @@ Developed entirely from scratch, this framework draws inspiration from industry-
 ```bash
 git clone https://github.com/floatphp/skeleton.git .
 composer install
+bash demo.sh
 ```
 
 ### ⭐ Support:
