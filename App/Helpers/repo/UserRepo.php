@@ -2,8 +2,8 @@
 /**
  * @author     : Jakiboy
  * @package    : FloatPHP Skeleton App
- * @version    : 1.4.x
- * @copyright  : (c) 2017 - 2024 Jihad Sinnaour <mail@jihadsinnaour.com>
+ * @version    : 1.5.x
+ * @copyright  : (c) 2017 - 2025 Jihad Sinnaour <me@jihadsinnaour.com>
  * @link       : https://floatphp.com
  * @license    : MIT
  *
@@ -16,4 +16,6 @@ namespace App\Helpers\repo;
 
 use FloatPHP\Helpers\Connection\User;
 
-final class UserRepo extends User {}
+final class UserRepo extends User
+{
+}
