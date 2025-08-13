@@ -3,5 +3,9 @@
 *.bak.*
 *.zip
 *.log
+*.png
+*.jpg
+*.jpeg
+*.gif
 App/vendor
 App/Storage/cache
