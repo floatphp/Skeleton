@@ -1,7 +1,7 @@
 {
     "name": "floatphp/skeleton",
     "description": "FloatPHP Skeleton App",
-    "version": "1.4.0",
+    "version": "1.5.0",
     "type": "app",
     "keywords": [
         "floatphp",
@@ -15,7 +15,7 @@
     "authors": [
         {
             "name": "Jihad Sinnaour",
-            "email": "mail@jihadsinnaour.com",
+            "email": "me@jihadsinnaour.com",
             "role": "Founder"
         }
     ],
