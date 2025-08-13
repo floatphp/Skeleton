@@ -2,4 +2,5 @@
 *.lock
 *.bak.*
 *.zip
+*.log
 App/vendor
