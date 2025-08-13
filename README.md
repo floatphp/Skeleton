@@ -15,10 +15,6 @@ git clone https://github.com/floatphp/skeleton.git .
 composer install
 ```
 
-## License:
-
-This project is licensed under the MIT License - see the [LICENSE](https://github.com/floatphp/Classes/blob/master/LICENSE) file for details.
-
 ### ⭐ Support:
 
 Skip the coffee! If you like the project, a **Star** would mean a lot.
