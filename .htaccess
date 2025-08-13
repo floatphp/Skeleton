@@ -106,21 +106,20 @@ AddHandler cgi-script .php3 .phtml .pl .py .jsp .asp .htm .shtml .sh .cgi
 </IfModule>
 
 ## Cookie protection
-# <ifmodule mod_headers.c>
-# 	Header edit Set-Cookie ^(.*)$ "$1;{HttpOnly};{Secure};{SameSite=Strict}"
-# </ifmodule> 
-# <IfModule mod_php.c>
-#     php_flag session.cookie_httponly on
-#     php_flag session.cookie_secure on
-# </IfModule>
+<ifmodule mod_headers.c>
+	Header edit Set-Cookie ^(.*)$ "$1;{HttpOnly};{Secure};{SameSite=Strict}"
+</ifmodule> 
+<IfModule mod_php.c>
+    php_flag session.cookie_httponly on
+    php_flag session.cookie_secure on
+</IfModule>
 
 ## Methods limit
 <Limit GET POST HEAD>
   	Order allow,deny
   	Allow from all
 </Limit>
-## PATCH PUT DELETE COPY CONNECT TRACE OPTIONS
-<LimitExcept PATCH PUT DELETE>
+<LimitExcept PATCH DELETE PUT COPY CONNECT TRACE OPTIONS>
 	Order deny,allow
 	Deny from all
 </LimitExcept>
@@ -130,7 +129,7 @@ SetEnvIfNoCase ^User-Agent$ .*(craftbot|download|extract|stripper|sucker|ninja|c
 SetEnvIfNoCase ^User-Agent$ .*(libwww-perl|aesop_com_spiderman) HTTP_SAFE_BADBOT
 Deny from env=HTTP_SAFE_BADBOT
 
-## Compression
+## Compression (Production)
 # <IfModule mod_deflate.c>
 # 	<FilesMatch "\.(html|php|txt|xml|js|css)$">
 # 		SetOutputFilter DEFLATE
@@ -161,7 +160,7 @@ Deny from env=HTTP_SAFE_BADBOT
 # 	AddOutputFilterByType DEFLATE text/xml
 # </IfModule>
 
-## Caching
+## Caching (Production)
 # <IfModule mod_expires.c>
 # 	ExpiresActive On
 # 	ExpiresByType image/jpg "access 1 year"
@@ -177,9 +176,9 @@ Deny from env=HTTP_SAFE_BADBOT
 # 	ExpiresDefault "access 1 month"
 # </IfModule>
 
-## PHP
+## PHP (Advanced)
 # <FilesMatch \.php$>
 # SetHandler application/x-httpd-php82
 # </FilesMatch>
 # AddHandler application/x-httpd-php82 .php
-# suPHP_ConfigPath /gen.com/php.ini
+# suPHP_ConfigPath /__DOMAIN__/php.ini
