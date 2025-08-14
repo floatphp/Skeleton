@@ -2,7 +2,7 @@
 /**
  * @author     : Jakiboy
  * @package    : FloatPHP Skeleton App
- * @version    : 1.1.x
+ * @version    : 1.5.x
  * @copyright  : (c) 2017 - 2025 Jihad Sinnaour <me@jihadsinnaour.com>
  * @link       : https://floatphp.com
  * @license    : MIT
