@@ -15,10 +15,10 @@ declare(strict_types=1);
 namespace App\Controllers;
 
 use App\Helpers\inc\Repo;
-use FloatPHP\Kernel\AbstractAuthController;
+use FloatPHP\Kernel\AbstractAuth;
 use FloatPHP\Helpers\Framework\Security;
 
-final class AuthController extends AbstractAuthController
+final class AuthController extends AbstractAuth
 {
 	/**
 	 * @inheritdoc
