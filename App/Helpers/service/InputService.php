@@ -12,13 +12,13 @@
 
 declare(strict_types=1);
 
-namespace App\Helpers\io;
+namespace App\Helpers\service;
 
 use FloatPHP\Classes\Filesystem\Stringify;
 use FloatPHP\Classes\Http\Server;
 use FloatPHP\Classes\Server\Date;
 
-final class InputIO
+final class InputService
 {
 	use \FloatPHP\Kernel\TraitConfiguration;
 
@@ -56,10 +56,10 @@ final class InputIO
 	{
 		$default = ($name == 'global') ? 'default' : 'global';
 
-		$io = new ConfigIO();
+		$service = new ConfigService();
 
-		$this->default = $io->get($default);
-		$this->data = $io->get($name);
+		$this->default = $service->get($default);
+		$this->data = $service->get($name);
 
 		$this->values = $values;
 

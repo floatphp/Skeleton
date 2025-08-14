@@ -14,7 +14,7 @@ declare(strict_types=1);
 
 namespace App\Controllers;
 
-use App\Helpers\inc\IO;
+use App\Helpers\inc\Service;
 use FloatPHP\Kernel\FrontController;
 
 final class HomeController extends FrontController
@@ -26,8 +26,8 @@ final class HomeController extends FrontController
 	 */
 	public function index() : void
 	{
-		$io = IO::i('config');
-		$data = $io->get('home', true);
+		$service = Service::i('config');
+		$data = $service->get('home', true);
 
 		$this->render('/front/home/index', [
 			'data' => $data

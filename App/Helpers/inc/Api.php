@@ -16,7 +16,7 @@ namespace App\Helpers\inc;
 
 use FloatPHP\Helpers\Filesystem\Loader;
 
-final class WS
+final class Api
 {
 	/**
 	 * Autoload Webservice.
@@ -25,6 +25,6 @@ final class WS
 	 */
 	public static function i(string $version, string $name, ...$args) : mixed
 	{
-		return (new Loader())->i("ws/v{$version}", $name, ...$args);
+		return (new Loader())->i("api/v{$version}", $name, ...$args);
 	}
 }

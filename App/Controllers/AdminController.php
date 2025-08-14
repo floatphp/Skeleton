@@ -14,7 +14,7 @@ declare(strict_types=1);
 
 namespace App\Controllers;
 
-use App\Helpers\inc\IO;
+use App\Helpers\inc\Service;
 use FloatPHP\Kernel\BackendController;
 
 final class AdminController extends BackendController
@@ -25,7 +25,7 @@ final class AdminController extends BackendController
 	public function __construct()
 	{
 		parent::__construct([
-			'menu' => IO::i('menu')::get()
+			'menu' => Service::i('menu')::get()
 		]);
 	}
 
@@ -56,7 +56,7 @@ final class AdminController extends BackendController
 	 */
 	public function configIndex(string $name) : void
 	{
-		$inputs = IO::i('input')->set($name)->get();
+		$inputs = Service::i('input')->set($name)->get();
 
 		$this->render('admin/config/index', ['inputs' => $inputs]);
 	}
@@ -70,7 +70,7 @@ final class AdminController extends BackendController
 	{
 		$payload = $this->sanitizeRequest(verify: true, force: true);
 
-		if ( IO::i('config')->update($name, $payload) ) {
+		if ( Service::i('config')->update($name, $payload) ) {
 			$this->setResponse('Item updated');
 		}
 

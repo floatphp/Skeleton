@@ -12,7 +12,7 @@
 
 declare(strict_types=1);
 
-namespace App\Helpers\io;
+namespace App\Helpers\service;
 
 use FloatPHP\Classes\Security\Encryption;
 use FloatPHP\Helpers\Framework\Configurator;
@@ -20,7 +20,7 @@ use FloatPHP\Helpers\Framework\Configurator;
 /**
  * Auth helper.
  */
-final class AuthIO
+final class AuthService
 {
 	/**
 	 * Generate token.

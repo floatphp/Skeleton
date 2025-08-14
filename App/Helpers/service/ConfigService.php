@@ -12,7 +12,7 @@
 
 declare(strict_types=1);
 
-namespace App\Helpers\io;
+namespace App\Helpers\service;
 
 use FloatPHP\Helpers\Connection\Settings;
 use FloatPHP\Helpers\Http\Submitter;
@@ -22,7 +22,7 @@ use FloatPHP\Classes\Filesystem\Stringify;
 /**
  * Config helper.
  */
-final class ConfigIO
+final class ConfigService
 {
 	/**
 	 * @inheritdoc

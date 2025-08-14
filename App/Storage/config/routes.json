@@ -3,8 +3,8 @@
 		{
 			"method": "GET",
 			"route": "/api/v[i:version]/",
-			"controller": "Webservice@index",
-			"name": "WebserviceIndex"
+			"controller": "ApiController@index",
+			"name": "ApiControllerIndex"
 		},
 		{
 			"method": "GET",

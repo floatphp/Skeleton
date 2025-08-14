@@ -14,11 +14,11 @@ declare(strict_types=1);
 
 namespace App\Controllers;
 
-use App\Helpers\inc\WS;
-use FloatPHP\Kernel\ApiController;
+use App\Helpers\inc\Api;
+use FloatPHP\Kernel\Webservice;
 use FloatPHP\Helpers\Framework\Security;
 
-final class Webservice extends ApiController
+final class ApiController extends Webservice
 {
 	/**
 	 * WebserviceIndex : [GET] /api/v[i:version]/
@@ -29,7 +29,7 @@ final class Webservice extends ApiController
 	 */
 	public function index(string $version)
 	{
-		WS::i($version, 'main')::index();
+		Api::i($version, 'main')::index();
 	}
 
 	/**

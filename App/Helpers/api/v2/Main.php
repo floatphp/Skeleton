@@ -12,22 +12,21 @@
 
 declare(strict_types=1);
 
-namespace App\Helpers\io;
+namespace App\Helpers\api\v2;
 
-use \FloatPHP\Helpers\Html\Menu;
+// use App\Helpers\toolkits\http\Validator;
+use FloatPHP\Classes\Http\Response;
 
-/**
- * Menu helper.
- */
-final class MenuIO
+final class Main
 {
 	/**
-	 * Get static generated menu.
-	 *
 	 * @inheritdoc
 	 */
-	public static function get() : array
+	public static function index() : void
 	{
-		return (new Menu())->prepare()->generate();
+		// Validator::hasNothing();
+		Response::set('Generator API v2', [
+			'version' => '2.0'
+		], 'info');
 	}
 }

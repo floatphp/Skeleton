@@ -16,15 +16,15 @@ namespace App\Helpers\inc;
 
 use FloatPHP\Helpers\Filesystem\Loader;
 
-final class IO
+final class Service
 {
 	/**
-	 * Autoload IO.
+	 * Autoload Services.
 	 *
 	 * @inheritdoc
 	 */
 	public static function i(string $name, ...$args) : mixed
 	{
-		return (new Loader())->i('io', "{$name}io", ...$args);
+		return (new Loader())->i('service', "{$name}service", ...$args);
 	}
 }
