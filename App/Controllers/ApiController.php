@@ -33,10 +33,7 @@ final class ApiController extends Webservice
 	}
 
 	/**
-	 * Is HTTP authenticated (Overrided).
-	 *
-	 * @access public
-	 * @return bool
+	 * @inheritdoc
 	 */
 	public function isHttpAuthenticated() : bool
 	{
